@@ -1,0 +1,119 @@
+<include file='Common/head' />
+<include file='Common/left' />
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/m.note.css">
+
+<script type="text/javascript">
+	var base_url_img = "__PUBLIC__/images/"
+	page_size = {$page_size};
+	note_data_total_count = {$note_data_total_count};
+	recovery_note_total_count = {$recovery_note_total_count};
+</script>
+<div class="js_header_ctn header-ctn">
+	<div class="js_note_header note-header">
+		<div class="js_title note-header-hd" id="g_switch_menu">
+			{$Think.lang.Note}
+
+		</div>
+		<div style="border-right:1px solid #fff;float: left;height:45%;margin-top:5%;"></div>
+		<div class="note-header-bd  note-header">
+
+			<span class="js_selected js_note_link note-link" id="note-link">{$Think.lang.Note}</span> <span class="js_trash_link trash-link" id="trash-link">{$Think.lang.Recycle}</span>
+			<include file='Common/head_right' />
+		</div>
+	</div>
+</div>
+<div class="js_home home" id='js_home'>
+	<div class="home-bd">
+		<div class="briefs-ctn js_home_briefs_ctn" id="list_note">
+			<volist name='note_data' id='vo'>
+				<div class="js_note_brief note-brief js_normal_note js_note_color0 js_draggable" data-note-id="{$vo.service_id}" id="{$vo.service_id}" draggable="true" id="js_draggable">
+					<div class="note-brief-hd">
+						<span class="modify-date js_modify_date" title="{$vo.data.title}">{$vo.data.title}</span>  <!--{$vo.data.last_update_time}-->
+						<div class="js_delete_btn delete-btn note_delete-btn"  title="{$Think.lang.Delete}" ></div>
+					</div>
+					<div class="js_snippet js_note_brief_bd note-brief-bd">
+
+						{$vo.data.content}
+
+					</div>
+					<div class="js_drop_zone"></div>
+				</div>
+			</volist>
+		</div>
+	</div>
+</div>
+<div class="layer"  style="display:none;">
+	<div class="close-btn "></div>
+</div>
+<div class="js_note_detail note-detail js_note_color0" style="display:none;">
+	<div class="js_history_picker history-picker" >
+	</div>
+	<div class="note-detail-hd" style="text-align: center;padding-bottom: 16px;font-size: 20px;">
+
+		<span class="js_modify_date modify-date"> </span>
+		<div class="close-btn "></div>
+	</div>
+	<div class="note-detail-bd">
+		<div  style="height:100%;">
+			<div class="note-content">
+				<input type="hidden" name="id" value="">
+				<div class="note-file-path">
+					<div class="div_title">{$Think.lang.Filepath} : </div>
+					<div class="div_left">
+					<span id="note_path">
+
+					</span>
+					</div>
+				</div>
+				<div class="note-state">
+					<div class="div_title">{$Think.lang.State} : </div>
+					<div class="div_left">
+						<span id="state"></span>
+					</div>
+				</div>
+				<div class="note-creation-time">
+					<div class="div_title">{$Think.lang.Creationtime} : </div>
+					<div class="div_left">
+						<span id="add_time">2016-11-11 07:31:05</span>
+					</div>
+				</div>
+				<div class="note-update-time">
+					<div class="div_title">{$Think.lang.Updatetime} : </div>
+					<div class="div_left">
+					<span id="update_time">
+						<!-- 更新时间 -->
+					</span>
+					</div>
+				</div>
+				<div class="note-details">
+					<div  >
+					<textarea  id="note_content" class="form-condivol" name="detailed" disabled="disabled">		
+					</textarea> 
+					</div>
+				</div>
+			</div></div>
+
+	</div>
+	<div class="note-detail-ft">
+		<div class="js_add_checkbox checklist-btn" id="recovery_note" style="display:none">
+			{$Think.lang.Recoverdata}
+		</div>
+		<div class="js_delete_btn delete-btn recovery_info" id="info_in_delete">
+			{$Think.lang.Delete}
+		</div>
+	</div>
+</div>
+<div id="note-popup" style="height: 100%;display: none;">
+	<div class="js_trash trash" style='display:none'>
+		<div class="trash-bd" >
+			<div class="briefs-ctn js_trash_briefs_ctn" id="reco_list_note">
+
+			</div>
+		</div>
+	</div>
+	<div class="js_note_detail_ctn" style="display: none;">
+	</div>
+	<div class="js_text_prompt_box_ctn text-prompt-box-ctn"></div>
+	<div class="js_sidebar_mask sidebar-mask"></div>
+</div>
+<include file='Common/footer' />

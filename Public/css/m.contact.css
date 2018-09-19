@@ -1,0 +1,128 @@
+body{
+    overflow:auto;
+}
+#contactListFrame .no_data, .merge_no_data{
+    top:48%;
+}
+#contact_more_operate{
+    display:block;
+}
+.cd-thefirst{
+    padding:20px 128px 0 61px;
+}
+.mdl-m-m{
+    background:none;
+}
+#kcloud_right_frame{
+    display:none;
+    width:100%;
+}
+#kcloud_left_frame{
+    width:100%;
+}
+#kcloud_window{
+    background:#f7f7f7;
+}
+
+.icobtn-back .btn-ct{
+    background:url(../images/iconsprite24.png) 0 0 no-repeat;
+    vertical-align:middle;
+    padding:0;
+    display:inline-block;
+    width:38px;
+    height:38px;
+    text-indent:-999em;
+    overflow:hidden
+}
+.icobtn-back .btn-ct{
+    width:16px;
+}
+.icobtn-back {
+    margin-right:20px;
+}
+#type_selector_0 .menu-corner{
+    margin-left: 0;
+    background-position: -8px -337px;
+    top: 114px;
+    bottom: auto;
+    left: 1px;
+    width: 23px;
+    height: 17px;
+    z-index: -1;
+}
+#type_selector_0{
+    height: 125px;
+    width: 230px;
+    top:70%;
+    left: 5%;
+    z-index:100;
+    position:absolute;
+}
+#contact_more_operate:hover .btn-tips{
+  display:block;
+}
+#merge_contact{
+    display:none;
+}
+
+
+#kcloud_window{
+    width:100%;
+   /* height:72%;*/
+    margin-left:-1px;
+}
+.mdl{
+    min-width:100%;
+}
+#merge_contact{
+    display:none;
+}
+
+
+@media all and (orientation:landscape){
+    .frame-area{
+        margin:0px 14px 0 12px;
+    }
+    font{
+        display:block;
+
+    }
+    #contact-detail-padd2, #merge_contact{
+        display:none;
+    }
+    .animated3{
+        width:64%;
+        top:56%;
+    }
+    .default-hint{
+        display:block;
+    }
+    /*.mdl-m-m-l, .mdl-m-m-r{
+        width:100%;
+    }*/
+    #type_selector_0{
+        height: 125px;
+        width: 230px;
+        top: 74%;
+        left: 6%;
+        z-index:60;
+    }
+    .layout{
+        min-width:100%;
+    }
+
+    /*.mdl-m-m-l, .mdl-m-m-r{
+        width:100%;
+    }*/
+
+
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .layout{
+        min-width:100%;
+    }
+    #kcloud_window{
+        height:80%;
+    }
+}

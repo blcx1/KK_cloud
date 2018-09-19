@@ -1,0 +1,11 @@
+<div class="n-footer">
+  <div class="nf-link-area clearfix">
+  <ul class="lang-select-list">    
+	    <volist name='iso_lang_list' id='vo'>
+		    <li><a class="lang-select-li <if condition = ' $vo.name eq $lang_name '> current</if>" href="?l={$key}" data-lang="{$key}">{$vo.name}</a>|</li>
+		</volist>
+		<li><a class="a_critical" onclick="javascript:void(0);" target="_blank"><em>{$Think.lang.FAQ}</em></a></li>    
+  </ul>
+  </div>
+  <p class="nf-intro"><span>{$Think.lang.Copyright}<!-- <a class="beianlink beian-record-link" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode="><span><img src="__PUBLIC__/Images/ghs.png"></span></a> --></span></p>
+</div>

@@ -1,0 +1,85 @@
+<include file='Common/head' />
+<div class="wrapper">
+<div class="wrap">
+<div class="layout" >
+  <div class="n-frame device-frame reg_frame" id="main_container">
+    <div class="external_logo_area">
+    <a class="klogo" href="{:get_home_url(false)}"><img alt="" src="__PUBLIC__/images/logo.png" style="width: 61px;"></a></div>
+	    <div class="title-item t_c">
+	      <h4 class="title_big30" style='text-align: center;'>{$Think.lang.Registeredaccount}</h4>          
+	    </div>  
+  		<div><div class="regbox">
+		  <div class="phone_step1">
+		    <div class="reg-form fl" style="height:380px;">
+            <form action="" id="register-form" method="post" novalidate="novalidate">
+                <div class="form-item form-item-account" id="form-item-account">
+                    <label class="user">{$Think.lang.Username}</label>
+
+                    <input  id="form-account" name="regName" class="" style='-webkit-box-shadow: 0 0 0px 1000px white inset ' autocomplete="off" maxlength="60"  value="{$user_name}"><!-- type="text"-->
+                    <i class="i-status"></i>
+                    <font color="red">*</font>
+                </div>
+                <div class="input-tip">
+                    <span class='error'>{$error_array.user_name}</span>
+                </div>
+                <div class="form-item" id='form-item-pwd' style="z-index: 12;">
+                    <label>{$Think.lang.Setpassword}</label>
+                    <input type="password" name="pwd" id="form-pwd" autocomplete="off"  class="" maxlength="18" >
+                    <i class="i-status"></i>
+                    <font color="red">*</font>
+                </div>
+                <div class="input-tip">
+                    <span class='error'>{$error_array.password}</span>
+                </div>
+                <div class="form-item" style="z-index: 12;" id='form-item-pwdRepeat'>
+                    <label>{$Think.lang.Confirmpassword}</label>
+                    <input type="password" name="pwdRepeat" id="form-equalTopwd" class="" maxlength="18" >
+                    <i class="i-status"></i>
+                    <font color="red">*</font>
+                <div class="capslock-tip tips" style="display: none;">大写已开启<b class="arrow"></b><b class="arrow-inner"></b></div></div>
+                <div class="input-tip">
+                    <span class='error'></span>
+                </div>
+				 <div class="item-email-wrap" >
+					<div class="form-item" id='form-item-email'>
+						<label>{$Think.lang.MailAddress}</label>
+						<input type="text" name="email" id="form-email" class=" ignore" autocomplete="off" maxlength="60"  value='{$email}' >
+						<i class="i-status"></i>
+                        <font color="red">*</font>
+					<ul class="suggest-container email-suggest"><li class=""><div class="value">@qq.com</div></li><li class=""><div class="value">@163.com</div></li><li class=""><div class="value">@126.com</div></li><li class=""><div class="value">@Sina.com</div></li><li class=""><div class="value">@Sohu.com</div></li><li class="suggest-li-last "><div class="value">@Gmail.com</div></li></ul></div>
+					<div class="input-tip">
+						<span class='error'>{$error_array.email}</span>
+					</div>					
+				</div>
+				<div class="input-tip" style="display:none;">
+					<span class="error"></span>
+				</div>
+                    <div  class="form-item form-item-authcode" id='form-item-icode'> <!--style="width: 209px;"-->
+                        <label>{$Think.lang.Verification}</label>
+                        <input   type="text" autocomplete="off" name="authcode" id="authCode" maxlength="4" class=" form-authcode"  > <!--style="width: 95px;"-->
+                    </div>
+                         <img alt="{$Think.lang.Picturecode}"   title="{$Think.lang.Changepicture}" src="{:getBaseURL()}Home/Index/verify/v/register_verify/88592264" class="icode_image code-image chkcode_img"  id= "verifyimg"/>   <!--style="margin-top:-62px;margin-left:224px;height:39px"-->
+                    	 <a id="verifyCodeChange" style="text-decoration: underline;" href="#" class="pass-change-verifyCode">{$Think.lang.Change}</a>
+                <font color="red" style=" position: relative; top: -27px;">*</font>
+                    <div class="input-tip">
+                        <span class='error'>{$error_array.verify_code}</span>
+                    </div>
+            </form>
+        </div>		    
+		    <div class="fixed_bot mar_phone_dis1">
+			   <p class="msg">
+			    	 {$Think.lang.Agree}
+			      <a href="" target="_blank" title="{$Think.lang.Useragreement}">{$Think.lang.Useragreement}</a>
+			      	{$Think.lang.And}
+			      <a href="" target="_blank" title="{$Think.lang.Privacypolicy}">{$Think.lang.Privacypolicy}</a>
+			      </p>
+			  <a style="line-height: 42px;font-size:14px; text-decoration: underline; height: 42px;" href="{:get_login_url(false)}" title="{$Think.lang.Login}">&lt;&lt;&nbsp;{$Think.lang.Returnlogin}</a>
+		      <input style="width: 122px; height: 44px;" class="btn332 btn_reg_1 submit-step btn_tip" data-to="phone-step2" type="button" value="{$Think.lang.Register}">
+		    </div>
+		  </div>
+</div></div></div>
+</div>
+</div>
+</div>
+<include file='Common/login_footer' />
+<include file='Common/footer' />

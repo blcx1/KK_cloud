@@ -1,0 +1,116 @@
+<include file='Common/head' />
+<if condition="$click_count elt 8">
+  <script type="text/javascript">     
+   var is_click = true;
+   var click_count = {$click_count};
+   function change_time(){
+	  
+	  var timeCount=60;
+	  var timeTask = setInterval(function(){
+		    timeCount--;
+			var verify_element = $('#verify-sendbtn');
+		    if(timeCount==0){
+		    	is_click = true;
+		        verify_element.removeAttr("disabled").css("background", '#4ca8d8').val(v_resend);
+		        timeCount =60;
+		        clearInterval(timeTask);
+		        
+		    }else{
+		    	is_click = false;
+		        verify_element.attr({"disabled":true}).css("background", '#79b5d4').val(v_already_send + ' ( ' + timeCount+ ' ) ');		        
+		    }
+		},1000);
+	  
+   }
+  
+   $(document).ready(function(){
+		  
+	  	  change_time();
+	  	  
+		  $('#verify-sendbtn').click(function(){
+			  	
+			    if(is_click){
+			    	
+			    	var msg = "";
+			    	$.ajax({
+						type:'post',
+						url:'__APP__/Home/Index/registerMailSend.html?is_ajax=1',
+						//data:{'id':id},
+						//返回数据根据结果进行相应的处理
+						dataType:'json',
+						success : function(result) {
+							
+							var  status = result.status;
+							switch (status){
+								case 0:
+									msg = v_operating_fast;
+								  break;
+								case 1:
+									click_count++;
+									if(click_count >= 8){
+										$(this).hide();
+									}else{
+										change_time();
+									}
+								  break;
+								default:
+									msg = v_e_send_failed;
+								break;							
+							}
+							
+							if(status != 1){								
+								
+								layer.msg(msg,{icon: 0,skin: 'layer-ext-moon'});
+							}						
+						}
+					});
+			    }	
+			});	
+		 
+  });			 
+  </script>
+ </if>
+  <div class="popup_mask" style="display: none;" id="global_loading"> 
+   <div class="bkc"></div> 
+   <div class="mod_wrap loadingmask"> 
+   </div> 
+  </div> 
+  <div class="wrapper"> 
+   <div class="wrap"> 
+    <div class="layout" >
+     <div class="n-frame device-frame" id="modal_container" style="display: block;"> 
+      <div class=" modal_tip mod_acc_tip" id="modal-id-0" style="display: block; padding-top: 45px;">
+       <div class="modal_tip_hd modal-header">
+        <div class="external_logo_area">
+         <a class="klogo" href="__APP__/Home/Index/login.html"><img alt="" src="__PUBLIC__/images/logo.png" style="width: 61px;" /></a>
+        </div>
+        <div class="modal-header-text modal_tip_title">
+         	{$Think.lang.Emailcode}
+        </div>
+        <a href="javascript:void(0)" title="" class="modal-header-close btn_mod_close"><span>{$Think.lang.Close}</span></a>
+       </div>
+       <div class="modal_tip_bd modal-body mod_tip_bd">
+        <div id="verify-mod-sendTicketTip"> 
+         <div id="verify-mod-send_ticket_tip">
+          <div class="identity_phone_effect"> 
+           <div class="description" style="line-height: 2;"> 
+            <p> <span class="send-ticket-tip">{$Think.lang.Eendemilcodetip}</span> <span class="ff6 verify-masked">{$email}</span><span class="send-ticket-tip">{$Think.lang.Verify}</span> </p> 
+            <p class="send-ticket-prompt"></p> 
+           </div> 
+          </div> 
+          <div class="tip_btns"> 
+           <a href="{$email_url}" class="btn_tip btn_commom verify-sendbtn" target="_blank">{$Think.lang.Enteremail}</a> 
+           <if condition="$click_count elt 8">
+           		<input type="button" class="btn_tip btn_commom verify-sendbtn " id='verify-sendbtn' value='{$Think.lang.Sendmail}'>
+           </if>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+<include file='Common/login_footer' />
+<include file='Common/footer' />

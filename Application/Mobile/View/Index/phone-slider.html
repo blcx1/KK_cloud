@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+	
+	<script type="text/javascript">
+	$(function(){
+		
+		$('body').on('touchstart', '.line', function(e) {
+			var slider=$(this);
+            var touch = e.originalEvent,
+            startX = touch.changedTouches[0].pageX;
+            startY = touch.changedTouches[0].pageY;
+			n=$('.line li').length;
+			var wh=100*n+"%";
+			$('.line').css("width",wh);
+			var lt=(100/n/4);
+			var lt_li=lt+"%";
+			$('.line li').css("width",lt_li);	
+			var y=0;
+			var w=n/2;
+            slider.on('touchmove', function(e) {
+			
+                e.preventDefault();
+                touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];
+                if (touch.pageX - startX > 10) {
+                    console.log("右划");
+					if(y==0){
+						}else{
+							y=y+lt;
+							var t=y+"%";
+							$(this).css({'-webkit-transform':"translate("+t+")",'-webkit-transition':'500ms linear'} );	
+						}
+                    //slider.off('touchmove');
+					console.log(y);
+					console.log(w)
+                    //showPrevious();
+                } else if (touch.pageX - startX < -10) {
+                    console.log("左划");
+					if(y==-lt*w){
+						}else{
+							y=y-lt;								
+							var t=y+"%";									
+							$(this).css({'-webkit-transform':"translate("+t+")",'-webkit-transition':'500ms linear'} );	
+						}
+                    //slider.off('touchmove');
+					console.log(y);
+					console.log(w)
+                    //showNext();
+                };
+            });
+ 
+            // Return false to prevent image
+            // highlighting on Android
+            //return false;
+ 
+        }).on('touchend', function() {
+			var slider=$(this);
+			 slider.unbind ('scroll');
+            //slider.off('touchmove');
+        });
+	});
+	
+	</script>
+	
+	<style>
+		.nav{
+		margin-top:20px;
+		overflow:hidden;
+		width:100%;
+		height:300px;
+		font-weight: 300;
+		font-size: 20px;
+		line-height: 36px;
+		position:relative;
+	}
+	*{
+		margin:0;
+		padding:0;
+		list-style-type:none;
+	}
+	div {display: block;}
+	body{font-size: 13px;line-height: 18px;color: #333;width:100%;}
+	.nav .line{ position:absolute;height:60px;left:0;line-height:60px;text-align:center;background:#2c63a6;cursor:pointer;left:0;}
+	.nav .line li{float:left;height:30px;}
+	.nav .line li:first-child{ background:none;}
+	.nav .line li a{ color:#fff;text-decoration:none;}
+	a,img{border:0;}
+	</style>
+</head>
+<body>
+	<div class="nav">
+    <ul class="line" style="width: 800%;">
+        <li style="width: 3.125%;"><a href="#">首页</a></li>
+        <li style="width: 3.125%;"><a href="#">通讯录</a></li>
+        <li style="width: 3.125%;"><a href="#">短信</a></li>
+        <li style="width: 3.125%;"><a href="#">相册</a></li>
+        <li style="width: 3.125%;"><a href="#">便签</a></li>
+        <li style="width: 3.125%;"><a href="#">查找设备</a></li>
+        <li style="width: 3.125%;"><a href="#">通讯记录</a></li>
+        <li style="width: 3.125%;"><a href="#">通话记录</a></li>
+    </ul>
+</div>
+</body>
+</html>

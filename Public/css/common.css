@@ -1,0 +1,105 @@
+/*公告部分样式*/
+.commTop{
+	padding:10px 0 10px 30px;
+	border-bottom:2px solid #B3CAE4;
+	font-size:14px;
+	width:96%;
+}
+/*完全隐藏*/
+.hide{
+	display:none;
+}
+/*显示*/
+.inline{
+	display:inline;
+}
+.block{
+	display:block;
+}
+/*按钮样式*/
+.btn,.btn2,.btn3,.btn4,.btn5{
+	text-align:center;
+	border:1px solid #17466C;
+	cursor:pointer;
+	padding:2px 10px;
+	color:#fff;
+	line-heigth:20px;
+	vertical-align:middle;
+	background-color:#11497c;
+}
+.btn2{
+	width:40px;
+}
+.btn3{
+	width:60px;
+}
+.btn4{
+	width:80px;
+}
+/*查询按钮*/
+.query{
+	position:absolute;
+	left:700px;
+	top:8px;
+}
+/*表格样式*/
+.commTable{
+	margin-top:20px;
+	width:80%;
+	margin:0 auto;
+	font-size:14px;
+}
+.commTable CAPTION{
+	text-align: center;
+	padding: 5px 0;
+	font-size:20px;
+	font-weight: bold;
+	
+}
+.commTable th,.commTable td{
+	text-align:center;
+	padding:5px 0;
+	border-bottom:1px solid #E5FFFC;
+	color:#b11497c;
+}
+.commTable td{
+	border-right:1px solid #B6B8D1;
+}
+.commTable th{
+	font-weight:bold;
+	color:#fff;
+	border-right:1px solid #0a365f;
+	background-color:#11497c;
+	padding:5px 0;
+}
+.commTable td input{
+	font-size:14px;
+	padding:3px 0;
+}
+.commTable tbody tr td{
+	color:#094C80;
+}
+
+.commTable tbody a{
+	color:#b30304;
+}
+.commTable tbody tr:nth-child(odd) td {background-color:#E5EAF0;}
+.commTable tbody tr:nth-child(even) td {background-color:#fff;}
+.commTable tfoot,.commTable CAPTION{
+	background-color:#bad2ea;
+}
+.commTable tfoot a{
+	color:#fff;
+}
+/*操作栏样式*/
+.croudDiv{
+	width: 165px;
+	margin: 0 auto;
+}
+.croudDiv span{
+	float: left;margin: 0 10px;
+}
+/*添加用户表格*/
+#addAdminUser{
+	width: 600px;
+}

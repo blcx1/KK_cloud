@@ -1,0 +1,56 @@
+<include file='Common/head' />
+<div class="layout" id="new_home_frame" style=" position: absolute; top: 0px; z-index: 2;">
+	<div class="global-head show clearfix">
+		<div class="account-area" style="display:none">
+			<p class="aa-equipment" style="visibility: visible; display: inline-block;">
+				<span id="g_your_connect"></span>
+				<span id="g_device_num"></span>
+				<span id="g_device_count">{$device_total_count}{$Think.lang.Platform}{$Think.lang.Connected}</span></p>
+			<include file='Common/language' />
+			<include file='Common/head_right' />
+		</div>
+	</div>
+	<div class="v-ul-container" style="display:none">
+		<ul class="v-home-ul home-animation clearfix">
+			<volist name='left_suspend_plugin_list' id='vo'>
+				<li>
+					<a href="{$vo.url}">
+			            <span class="animation-area vhu-item1">
+				              <em class="ico-area v-ico-{$vo.name}"></em>
+				              <em class="ico-lock" style="display:none"></em>
+				              <img src="__PUBLIC__/images/v-home-ico-{$vo.name}.png" width="60" class="for-noanimation">
+			            </span>
+						<span class="vhu-con g_{$vo.name}">{$vo.display_name}</span>
+					</a>
+			</li>	
+		</volist> 
+		</ul>
+	</div>
+</div>
+<div id="popup" style="display:none;">
+	<iframe name="hidden_message_frame_1" style="display: block;"></iframe>
+	<div class="dialog clearfix web-dialog animated3 pulse" id="dialog_0" style="width: 480px; z-index: 1000; top: 243px; left: 435.5px;">
+		<div class="m-p-head clearfix dialog_header">
+			<div class="m-p-head-ct">
+				{$device_total_count}{$Think.lang.Platform}{$Think.lang.Connected}
+			</div>
+			<a href="javascript:void(0)" id="g_add_device" class="head-btn hb-add-device"><span class="btn-ct">{$Think.lang.Add}</span></a>
+			<a href="javascript:void(0)" id="close_device" class="head-btn hb-close">{$Think.lang.Close}</a>
+		</div>
+		
+		<div class="m-p-foot v4-btn-area tl-c dialog_footer">
+		</div>
+	</div>
+	<div class="dialog clearfix web-dialog animated3 pulse" id="dialog_11" style="width: 400px; z-index: 1011; top: 241.5px; left: 475.5px;display:none;" >
+		<div class="m-p-head clearfix dialog_header">
+			<div class="m-p-head-ct">
+				{$Think.lang.Adddevice}
+			</div>
+			<a href="javascript:void(0)" id="g_add_back" class="head-btn hb-close"><span class="btn-ct">{$Think.lang.Back}</span></a>
+		</div>
+		<div class="m-p-foot v4-btn-area tl-c dialog_footer">
+		</div>
+	</div>
+	<div class="gray_box web-gray" id="__mask2__" style="z-index: 109; width: 100%; height: 100%;"></div>
+</div>
+<include file='Common/footer' />

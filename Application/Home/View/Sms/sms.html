@@ -1,0 +1,221 @@
+<include file='Common/head' />
+<include file='Common/left' />
+ <div class="layout" style="" id="kcloud_main_frame">
+      <div class="global-head clearfix" id="g_new_navbar" style="display: block;">
+          <a href="javascript:void(0);" class="current-nav" id="g_switch_menu" name="g_switch_menu">
+			  <em class="menu-more-ico" style="display: inline-block;"></em>
+			  <span id="g_mod_name">{$Think.lang.Sms}</span></a>
+        	  <include file='Common/head_right' />
+      </div>
+       <div class="mdl js_frame animated fadeInLeft" id="kcloud_window" >  <!--style="width: 736.842px;"-->
+           <div class="mdl-m-m">
+               <div class="mdl-m-m-l" id="kcloud_left_frame">
+                   <div id="sms_left" class="sms-list-padd">
+                       <div id="sms_search" class="global-search k-search search-hascon clearfix">
+                           <i id="sms_search_btn"></i><em style="display:none" id="sms_search_cancel"></em> <input type="text" id="sms_search_input" placeholder="{$Think.lang.Search}" style="color: rgb(0, 0, 0);">
+                       </div>
+                       <div id="sms_nav" class="bread-crumbs" style="display:none">
+                           <a class="button" href="#sms/full"><span class="btn-ct">{$Think.lang.Sms}</span></a> <span class="bc-sign">&gt;</span> <a href="javascript:void(0);">{$Think.lang.Recycle}</a>
+                       </div>
+                       <div id="sms_del_tab" class="tab-area" style="display:none">
+                           <p class="tab-area-tips">
+                               	{$Think.lang.Deletedmessages}<a id="empty_message_trash" href="javascript:void(0)" class="sms-delete-all" name="empty_message_trash">{$Think.lang.EmptyTrash}</a>
+                           </p>
+                       </div>
+                       <div style="display:none" id="sms_search_result" class="contact-group-select">
+                           <a style="color:#7F7F7F" href="#sms/full" id="sms_search_back" name="sms_search_back">&lt;&nbsp;{$Think.lang.Return}</a>&nbsp;|&nbsp; <span id="sms_search_hint"></span>
+                       </div>
+                       <div id="sms_tab" class="tab-area">
+                           <ul class="clearfix">
+                               <li class="sms_tab current-status" id="sms_tab_full">
+                                   <a href="javascript:void(0);" >{$Think.lang.Sms}</a>
+                               </li>
+                               <li class="another-corner sms_tab" id="sms_tab_locked">
+                                   <a href="javascript:void(0);">{$Think.lang.Recycle}</a>
+                               </li>
+                           </ul>
+                       </div>
+                       <div class="frame-area no-corner" id="sms_frame_resizeable">
+                           <div class="left-corner"></div>
+                           <div class="right-corner"></div>
+                           <div class="left-bottom-corner"></div>
+                           <div class="right-bottom-corner"></div>
+                           <div class="sms-frame-area" id="smsListFrame">
+                               <div id="sms_full_list_frame" style="height: 392px;">
+
+                               	   <script type="text/javascript">
+								   		page_size = {$page_size};
+								   		left_use_total_count = {$use_sms_total_count};
+								   		left_recy_total_count = {$recy_sms_total_count};
+								   </script>
+                                   <div id="sms_full_list" style='overflow:auto;' class="global-list sms-list clearfix"><!--height: 521px;-->
+									   <ul id="scroll_container_sms1" class="global-list contact-list" style="position: relative;">
+										   <if condition="$use_sms_total_count gt 0">
+											   <volist name='use_sms_list' id='vo'>
+												   <li id="thread-full-{$vo.group_id}" data-id="{$vo.group_id}" class="sms_list_item mobileInfo1" style="">
+													   <div class="sms-list-avatar stranger">
+														   <img src="__PUBLIC__/images/10086.png" class="sms_photo"/>
+													   </div>
+													   <div class="content">
+														   <div class="content-sms-title">
+															   <span class="content-name display-name">
+															     <font class="sms_contact_name">{$vo.contacts}</font>
+															     <font class="sms_phone">{$vo.phone}</font>
+															     <font class="sms_total_count">{$vo.total_count}</font>
+															     <font class="sms_total_count_display" <if condition='$vo.total_count eq 1'>style="display:none;"</if>> ( {$vo.total_count} )</font>
+															   </span>
+														   </div>
+														   <p class="content-p">{$vo.content}</p>
+														   <p class="content-date"><span>{$vo.date}</span></p>
+													   </div>
+													   <a class="checkbox item_checkbox  mobileInfo" data-gid="{$vo.group_id}" href="javascript:void(0);"><em></em></a> </li>
+											   </volist>
+										   <else />
+										   		<span class="hint-content">{$Think.lang.Nodata}</span>
+										   </if>
+									   </ul>
+									   <ul id="scroll_container_sms2" class="global-list contact-list" style="position: relative;display:none;">
+										   <if condition="$recy_sms_total_count gt 0">
+											   <volist name='recy_sms_list' id='vo'>
+												   <li id="thread-locked-{$vo.group_id}" data-id="{$vo.group_id}" class="sms_list_item mobileInfo1" style="">
+													   <div class="sms-list-avatar stranger">
+														   <img src="__PUBLIC__/images/10086.png" class="sms_photo"/>
+													   </div>
+													   <div class="content">
+														   <div class="content-sms-title">
+															   <span class="content-name display-name">
+															   	<font class="sms_contact_name">{$vo.contacts}</font>
+															   	<font class="sms_phone">{$vo.phone}</font>
+															    <font class="sms_total_count_display" <if condition='$vo.total_count eq 1'>style="display:none;"</if>> ( {$vo.total_count} )</font>
+																</span>
+														   </div>
+														   <p class="content-p">{$vo.content}</p>
+														   <p class="content-date"><span>{$vo.date}</span></p>
+													   </div>
+													   <a class="checkbox item_checkbox  mobileInfo"   data-gid="{$vo.group_id}" href="javascript:void(0);"><em></em></a> </li>
+											   </volist>
+										   <else />
+										   		<span class="hint-content">{$Think.lang.Nodata}</span>
+										   </if>
+									   </ul>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="sms_more" <if condition="$use_sms_total_count elt $page_size"> style="display:none;"</if>>
+                           <div class="loading sms_loading" style="display: none;"></div>
+                           <a href='javascript:void(0);' id='left_use_more' <if condition="$use_sms_total_count elt $page_size"> style="display:none;"</if>>{$Think.lang.Loadmore}</a>
+                           <a href='javascript:void(0);' id='left_recy_more' style="display:none;">{$Think.lang.Loadmore}</a>
+                           </div>
+                       </div>
+					  <div class="button-area clearfix select-all" id="sms_sel" style="display:block">
+                           <div class="fl-r link-button" style='float: left;' id="sms_sel_all_button">
+                               <span class="btn-ct all_select" style='margin-left: 7px;'>{$Think.lang.Select}</span>
+                               <span class="btn-ct btn-select" style='margin-left: 7px;'>{$Think.lang.Choice}</span>
+                               <span class="btn-ct clear_clear" style='margin-left: 7px;'>{$Think.lang.Cancel}</span>
+                           </div>
+                           <div class="fl-r link-button">
+                           	   <span class="btn-ct all_clear" style='margin-left: 7px;'>{$Think.lang.Emptyall}</span>
+                               <span class="btn-ct btn-delete" style='margin-left: 7px;'>{$Think.lang.Moverecycle}</span>
+                               <span class="btn-ct btn-recover" style='margin-left: 7px;display:none;'>{$Think.lang.Restoredata}</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+				   <div class="mdl-m-m-r" id="kcloud_right_frame" style="display:block;">
+					   <div id="sms_right" class="">
+						   <div class="default-hint" style="display:block;">
+							   <span class="hint-content" style="position: relative;left:156px;top: 315px;" >{$Think.lang.Clickdetails}</span>
+						   </div>
+
+						   <div class="m-p m-p-sh panel" id="sms_detail_select_frame" style="width: auto; height: 100%;display:none">
+							   <div class="m-p-head clearfix">
+								   <div class="m-p-head-ct">
+									   <h4 class="contact-title" id="sms_select_count">{$Think.lang.Currentlyselected}<span id="sms_select_num">1</span>{$Think.lang.Session}</h4>
+								   </div>
+							   </div>
+							   <div class="m-p-foot button-area clearfix tl-r">
+								   <div class="fl-l button" id="M-Gen-button-100">
+									   <span class=" btn-ct ">{$Think.lang.Cancel}</span>
+								   </div>
+								   <div class="icobtn-del button" id="M-Gen-button-101">
+									   <span class=" btn-ct ">{$Think.lang.Delete}</span>
+									   <div class="btn-tips">
+										   <div class="tip">
+											   {$Think.lang.Delete}
+										   </div>
+										   <em></em>
+									   </div>
+								   </div>
+							   </div>
+						   </div>
+						   <div class="mes-details-container" id="smsDetailFrame" style="display: block;">
+							   <div id="sms_detail_full_frame" style="display:none;">
+                            <div id="mes-details">
+                                <div id="mes-details-avator"  style="display:none;">
+								   <div class="mes-details-avator clearfix">
+									   <div class="sms-list-avatar stranger">
+										   <img src="__PUBLIC__/images/10086.png" />
+									   </div>
+									   <div class="content">
+										   <p id="sms_displayname" contactid="0" class="content-name sms_name  usernickname" data-did="0" rendered="1"></p>
+										   <p class="content-p sms_phone">  </p>
+										   <div class="timeline-ico sms_timeline_trigger sms_timeline_count" style="display: none;">
+											   <i></i><span class="sms_total_count"></span>{$Think.lang.Sms}
+										   </div>
+									   </div>
+								   </div>
+								   <div id="sms_timeline_container"></div>
+								   <div id="sms_full_detail_content">
+
+									   </div>
+								   </div>
+								</div>
+									 <div class="content_more">
+									 	 <div class="loading content_loading" style="display: none;"></div>
+                                         <a href="javascript:void(0);" id="more_content">{$Think.lang.Loadmore}</a>
+                                     </div>
+								<div class="button-area clearfix select-all" id="sms_content" style="display:none;">
+                           <div class="fl-r link-button" style='float: left;' id="sms_sel_all">
+                               <span class="btn-ct all_sel" style='margin-left: 7px;'>{$Think.lang.Select}</span>
+                               <span class="btn-ct btn-sel" style='margin-left: 7px;'>{$Think.lang.Choice}</span>
+                               <span class="btn-ct sms_clear" style='margin-left: 7px;'>{$Think.lang.Cancel}</span>
+                           </div>
+                           <div class="fl-r link-button">
+                               <span class="btn-ct btn-sms_delete" style='margin-left: 7px;'>{$Think.lang.Moverecycle}</span>
+                                <span class="btn-ct btn-sms-recover" style='margin-left: 7px;display:none;'>{$Think.lang.Restoredata}</span>
+                           </div>
+                       </div>
+                         </div>
+							   </div>
+						   </div>
+					   </div>
+               </div>
+           </div>
+		   </div>
+       <div class="frame-container js_frame" id="kcloud_iframe_container" style="display: none; margin: 0px auto; width: 736.842px; height: 500px;"></div>
+<div id="delete-popup" style="display:none;">
+		<div id="gloading" class="" style="z-index: 9990;display: block;"></div>
+		<div class="m-p animated3 pulse clearfix dialog" zindex="110" id="M-Gen-dialog-118" style="width: 400px; margin-left: -200px; left: 50%; top: 379px; z-index: 110;">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct">
+					{$Think.lang.Prompt}
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<div class="dialog-tips">
+					{$Think.lang.Deletemessages}
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div id="M-Gen-button-116" class="button">
+					<span class=" btn-ct ">{$Think.lang.Cancel}</span>
+				</div>
+				<div class="default button" id="M-Gen-button-117">
+					<span class=" btn-ct">{$Think.lang.Determine}</span>
+				</div>
+			</div>
+		</div>
+		<div class="gray_box" id="__mask__" style="z-index: 109; width: 100%; height: 100%;"></div>
+</div>
+<include file='Common/footer' />

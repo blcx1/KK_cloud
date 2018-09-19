@@ -1,0 +1,175 @@
+.gal-nav li:hover, .gal-nav li.current{
+    background:none;
+}
+.gallery-content{
+    width: 100px;
+    color: rgb(255, 255, 255);
+    font-size: 14px; position:
+        absolute; top: 33px;
+    left: 34px;
+    display:block !important;
+}
+#gallery_left ul{
+    right: 0px;
+    border-radius: 6px;
+    position: absolute;
+    top: 60px;
+    left: 32px;
+    overflow: hidden;
+    z-index: 1;
+    width: 96px;
+    display: none;
+}
+#gallery_left ul li{
+    background: rgb(46, 58, 88);
+    height: 32px;
+    text-align: left;
+    padding: 0px 10px;
+    line-height: 32px;
+    color: rgb(162, 167, 181);
+    position: relative;
+    cursor: pointer;
+}
+.vh-avator-area{
+    right:-3px;
+}
+.global-head{
+    min-width:0;
+}
+.img-list{
+    margin-right:0;
+}
+.layout{
+    min-width:0;
+}
+.hide,.gallery_list{
+    display:none;
+}
+.the-container,#detail_area{
+    overflow:auto;
+}
+.img-list .selected:hover .checkbox, .img-list li.selected .checkbox{
+    display:none;
+}
+.img-list li:hover .checkbox{
+    display:none;
+}
+.lightbox{
+    min-width:0;
+}
+.iMIge-ft{
+    display:none;
+}
+.iMIge-image{
+    margin:0 0 0;
+}
+.iMIge-prev{
+    left:-8%;
+}
+.iMIge-next {
+    right:-10%;
+}
+#iMIge_image_container_up{
+    width:60%;
+    height:80%;
+    top:12%;
+}
+.gallery_checkbox{display:none;}
+.album-num{
+    color:#98999b;
+    display:block;
+    text-align:center;
+    line-height:1.5;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.iMIge-ft{display:none;}
+.iMIge-image{margin:0 0 0;}
+.iMIge-prev{left:-8%;}
+.iMIge-next{right:-10%;}
+#iMIge_image_container_up {
+    width: 60%;
+    height: 80%;
+    top: 16%;
+}
+.iMIge-image-fg img{
+    width:100%;
+    height:100%;
+    max-width:100%;
+}
+.iMIge-bd{height:90%;}
+body{overflow-y:auto;}
+.album-func-area{
+    display:block;
+}
+.v-gal-down-ico{
+    background:none;
+}
+
+embed {
+    width:100%;
+    height:100%;
+}
+
+.iMIge-image-container {
+    box-shadow:none;
+}
+
+@media (max-width:320px) {
+    #album_list {
+        margin-left: -20%;
+    }
+
+    #gallery_right_recycle {
+        margin-left: -10%;
+    }
+}
+@media (min-width:412px) and (max-width:640px){
+    .the-container{
+        padding-left:60px;
+    }
+}
+@media all and (orientation:landscape){
+    .iMIge-prev{
+        left:-4%;
+    }
+    .iMIge-next {
+        right:-2%;
+    }
+    .iMIge-bd{
+        height:100%;
+        overflow-y:auto;
+        overflow-x:hidden;
+    }
+    .iMIge{
+        overflow-y:scroll;
+    }
+    .iMIge-image-fg img{
+        max-width: 100%;
+        height: auto;
+        width: auto\9;
+    }
+    .lightbox,.layout,.gray_box{
+        min-height:100%;
+    }
+    .iMIge-nav a{
+        top:16%;
+    }
+}
+@media all and (orientation:portrait){
+    .lightbox,.layout{
+        min-height:500px;
+    }
+.iMIge-image-container {
+    width:60% !important;
+}
+}
+@media (min-width:768px) and (max-width:1023px){
+    .iMIge-prev{
+        left:-2%;
+    }
+    .iMIge-next{
+        right:-2%;
+    }
+}

@@ -1,0 +1,16 @@
+/*
+
+.n_sevices{
+    min-height:288px;
+}
+@media all and (orientation:landscape){
+    .font-default, #changeEmail .wap-desc{
+        overflow:hidden;
+    }
+    .n-btn{
+        padding:7px 40px;
+    }
+    .n_sevices{
+        min-height:252px;
+    }
+}*/

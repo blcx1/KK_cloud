@@ -1,0 +1,88 @@
+.vh-avator-area{
+    right:12px;
+}
+.layout{
+    min-width:0;
+    min-height:0;
+}
+.global-head{
+    min-width:0;
+    height:70px;
+}
+.current-nav{
+    width:130px;
+}
+.find-phone-name{
+    position:relative;
+    color:#fff;
+    font-size:16px;
+    float:right;
+    left:-28%;
+    top:47%;
+}
+.v-nav-ul-container{
+    max-height:100vh;
+    min-height:100%;
+}
+.find-phone-container{
+    height:83.5%;
+}
+#kcloud_iframe_container{
+    width: 94%;
+    height: 84%;
+}
+.find-phone-container{
+    display:none;
+}
+.BMap_mask{
+    height:100%;
+}
+.gray_box{
+    min-height:0;
+    hieght:100%;
+}
+
+#M-Gen-dialog-114{
+    top:64px;
+}
+
+.select-device li{
+    height:64px;
+}
+@media all and (orientation:landscape){
+      .layout{
+        min-height:615px;
+
+    }
+    #M-Gen-dialog-114{
+        position:relative;
+        top:-114%;
+        width:106%;
+        margin-left:-53%;
+        min-height:615px;
+        background:#f6f6f6;
+    }
+    .dialog .m-p-foot{
+        box-shadow:0 1px 0 #f6f6f6;
+    }
+    .device_display_more, .log_display_more{
+        margin:26px auto;
+    }
+    .select-device li{
+        height:64px;
+    }
+    .dialog .button-area{
+        margin:-12px 0 0 0;
+    }
+}
+@media (min-width:768px) and (max-width:1023px){
+    .find-phone-container{
+        display:block;
+    }
+    .find-phone-name{
+        display:none;
+    }
+    .cross-frame{
+        height:95%;
+    }
+}

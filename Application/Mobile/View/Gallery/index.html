@@ -1,0 +1,345 @@
+<include file='Common/head' />
+<include file='Common/left' />
+<link type="text/css" rel="stylesheet"  href="__PUBLIC__/css/m.gallery.css">
+<script type="text/javascript">
+	var base_url_img="__PUBLIC__/images/";
+	/*page_size = {$page_size};
+	 photo_data_total_count = {$photo_data_total_count};
+	 recovery_photo_total_count = {$recovery_photo_total_count};
+	 album_data_total_count = {$album_data_total_count};
+	 recovery_album_total_count = {$recovery_album_total_count};*/
+</script>
+
+<div class="layout" style="" id="kcloud_main_frame" >
+
+	<div class="gallery-body gal-time-mode">
+
+
+		<div class="global-head clearfix" id="g_new_navbar">
+			<a href="#" class="current-nav" id="g_switch_menu"> <em class="menu-more-ico"></em> <span id="g_mod_name" style="display: inline;">{$Think.lang.Cloudphoto}</span> </a>
+			<div class="gal-nav clearfix" id="gallery_left">
+				<em class="gal-line"></em>
+
+				<div class="gallery-content" style="display:none;">
+					<span class="clearfix-name">{$Think.lang.Photo}</span>
+					<em class="ico-lang-down"></em>
+				</div>
+
+				<ul class="clearfix">
+
+
+					<!-- <li id="gallery_tab_time" class="current"><a href='#'>照片</a></li> -->
+					<li id="gallery_tab_album" class="current"><a href='#' class='current'>{$Think.lang.Album}</a></li>
+
+					<li id="gallery_tab_recycle" class="gal-recycle"><a href='#'>{$Think.lang.recycle}</a></li>
+					<!--upload summary part-->
+					<li class="up-status" style="display:none" id="upload_status_container">
+          <span class="pointer">
+          <span id="upload_status"></span>
+          <a id="upload_done" href="#" class="refresh-link"></a>
+          <em id="upload_status_icon" class="up-status-ico"></em></span>
+					</li>
+				</ul>
+				<!--span class="gallery-quota" id="quota_container"></span-->
+			</div>
+
+			<include file='Common/head_right' />
+		</div>
+
+
+		<div class="fixed-area" style="display: none; margin-top: 83px;">
+			<div class="album-title-area" style="display: block;">
+				<div class="ata-return" data-name="photo_re"  id="gallery_back_button">
+					<em class="ico-slider-left"></em>
+					<div class="button"><a href=''></a><span class="btn-ct">{$Think.lang.Return}</span></div>
+				</div>
+				<span class="ata-name" id="gallery_title_album_name">{$Think.lang.Camera}</span>
+			</div>
+		</div>
+
+
+		<div id="detail_area" class="the-container">
+
+			<form action="__APP__/Home/Gallery/down_photo.html" method = 'post' id="form_post">
+
+				<div class="m-p-foot button-area clearfix gal-toolbar gal-toolbar-area" style=" display: none;"><!--padding-left: 140px; padding-right: 140px;-->
+					<div class="button-area-padd tl-c gal-toolbar-inner clearfix"><div class="fl-l button" id="M-Gen-button-100"><span class=" btn-ct">{$Think.lang.Addalbum}</span></div>
+
+						<div class="fl-l button" id="download_photo">
+							<!-- <span class=" btn-ct">下载原图</span> -->
+							<input type="button" class=" btn-ct" value="{$Think.lang.Downloadoriginal}">
+						</div>
+						<div class="fl-l button" id="M-Gen-button-102"><span class=" btn-ct">{$Think.lang.Deletepicture}</span></div>
+						<div class="fl-l button" id="M-Gen-button-102"><span class=" btn-ct">{$Think.lang.Deletepicture}</span></div>
+						<div class="fl-r button" id="M-Gen-button-103"><span class=" btn-ct">{$Think.lang.Cancel}</span></div><div class="fl-r select-all button" id="M-Gen-button-104">
+							<span class=" btn-ct">{$Think.lang.Selectall}</span></div><span class="gt-status">{$Think.lang.Chose} <span class="checked_num">0</span> {$Think.lang.Photo}</span>
+					</div>
+				</div>
+
+				<!-- 相册 -->
+				<div class="gl-right has-album clearfix hide tab " id="gallery_right"  style="display:block">
+					<div class="album-area" id="album_frame" style="display:block">
+						<h4 id="my_pic" class="other-share" style="padding-top: 0px;">{$Think.lang.Myalbum}</h4>
+						<ul class="img-list clearfix" id="album_list">
+
+							<volist name="photo_data " id="vo">
+
+
+								<li class="image-item no-edit" id="{$vo.id}" >
+									<a class="img-info" href="#"> <img src="{$vo.photo_path}" style="" class="img-data front-cover fadeIn"  width="120" height="212" />
+							 	<span class="album-func-area">
+
+							 		<em title="{$Think.lang.Downloadalbum}" class="v-gal-down-ico down-photo"  data-id="{$vo.id}">{$Think.lang.Downloadalbum}</em>
+							 		<em title="{$Think.lang.Deletealbum}" class="v-gal-del-ico v-album-recy" data-id="{$vo.id}">{$Think.lang.Deletealbum}</em>
+							 	</span> </a>
+									<div class="album-name-area">
+										<div class="album-name-container">
+											<span class="album-name">{$vo.album_name}</span>
+										</div>
+										<input type="text" class="album-name-edit" id="aid" value="{$vo.id}" />
+									</div> <span class="album-num"><span class="album-num-1 photo_count" data-count="{$vo.count}">{$vo.count}</span><span>{$Think.lang.Photos}</span><span class="album-sharedby-377738485"></span> </span>
+									<div class="gallery-tip-box" style="display:none">
+										<p></p>
+										<em class="gallery-tip-triangle"></em>
+									</div> </li>
+							</volist>
+
+
+
+						</ul>
+						<ul class="img-list clearfix" id="album_list_shared">
+						</ul>
+					</div>
+
+
+
+					<!-- postion -->
+					<div class="m-p m-p-sh total-img-area gallery-total-padd panel" style="height: 100%; display: none;" id="gallery_detail_1">
+						<div class="m-p-head clearfix fixed-head">
+							<div class="m-p-head-ct">
+								<div class="intro">
+									<p id="album_autoupload_filter"> </p>
+									<p id="share_from"> </p>
+									<p id="share_to"> </p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="m-p-frame panel_body the-container gallery_list" id="" style="display:none">
+					<div class="scroll-area">
+						<ul class="img-list clearfix photo_list" id="gallery_list" data-id="">
+						</ul>
+						<div id="gallery_detail_" class="img-empty" style=" display: none;">
+							<p>{$Think.lang.Albumtips}</p>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="m-p-foot button-area clearfix gal-toolbar gal-toolbar-tip" style="padding-left: 140px; padding-right: 140px; display: none;">
+				<div class="button-area-padd tl-c gal-toolbar-inner clearfix">
+					<div class="fl-l button" id="M-Gen-button-105">
+						<span class=" btn-ct">{$Think.lang.Reduction}</span>
+					</div>
+					<div class="fl-l button delete-button" id="M-Gen-button-106">
+						<span class=" btn-ct">{$Think.lang.Removecompletely}</span>
+					</div>
+					<div class="fl-r button" id="M-Gen-button-107">
+						<span class=" btn-ct">{$Think.lang.Cancel}</span>
+					</div>
+					<div class="fl-r select-all button" id="M-Gen-button-108">
+						<span class=" btn-ct">{$Think.lang.Selectall}</span>
+					</div>
+					<span class="gt-status">{$Think.lang.Chose} <span class="checked_num">0</span>  {$Think.lang.Photo}</span>
+				</div>
+			</div>
+
+
+			<!-- 回收站 -->
+			<div class="gl-right clearfix hide tab" id="gallery_right_recycle">
+				<div class="m-p m-p-sh gallery-recycle panel" style="height: 100%;" id="gallery_detail_recycle">
+					<div class="m-p-frame panel_body the-container">
+						<div class="img-recycle-box scroll-area clearfix album-area" >
+
+							<h4 id="my_pic" class="other-share" style="padding-top: 0px;">{$Think.lang.Myalbum}</h4>
+
+							<ul class="img-list clearfix" id="album_recy">
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="m-p animated3 pulse ablum-check-padd clearfix dialog" style="z-index:125;" zindex="125" id="add_album_dialog"><!--style="width: 420px; margin-left: -210px; left: 50%; top: 247.5px; z-index: 125;    display: none;"-->
+		<div class="m-p-head clearfix">
+			<div class="m-p-head-ct">
+				{$Think.lang.Newalbum}
+			</div>
+			<a href="javascript:void(0)" class="close_btn"></a>
+		</div>
+		<div class="m-p-frame dialog_body">
+			<div class="m-p-promot dialog-input-area clearfix">
+				<input type="text" class="m-p-pm-input dialog-input" placeholder="{$Think.lang.Newalbumname}" />
+			</div>
+			<div style="position:relative;">
+				<div style="display: none;" class="gallery-tip-box">
+					<p></p>
+					<em class="gallery-tip-triangle"></em>
+				</div>
+			</div>
+		</div>
+		<div class="m-p-foot button-area clearfix tl-r">
+			<div id="M-Gen-button-101" class="button">
+				<span class=" btn-ct">{$Think.lang.Cancel}</span>
+			</div>
+			<div class="disabled default button" id="createAlbumBtn">
+				<span class=" btn-ct">{$Think.lang.Newlybuild}</span>
+			</div>
+		</div>
+	</div>
+
+
+	<div style="width:1px;height:0px;overflow:hidden">
+	</div>
+
+	<!--	<iframe id="_downImage" src="about:blank" width="0" height="0" style="position: absolute; bottom: 0px; left: 0px; display: none;"></iframe-->
+	<em class="img-message nowrap" style="display: none; top: 324px; left: 56.5px;"><span>{$Think.lang.Camera}</span></em>
+</div>
+
+<div id="M-Gen-lightbox-105" class="lightbox" style="position: absolute; width: 100%; height: 100%; z-index: 120; top: 0px; display: none;"> <!--min-height: 500px;-->
+	<div class="iMIge" > <!--overflow:hidden;--> <!--style="min-height:500px;"-->
+		<div class="iMIge-bd" ><!--style="height:90%;"-->
+			<a class="nopointer" style="display: none;"></a>
+			<a class="nopointer" style="float: right; display: none;"></a>
+			<div class="iMIge-image" style="">
+				<div class="iMIge-image-container" id="iMIge_image_container_up" ><!--style="width: 320px; height:700px; top: 29.95px; left: 0px;"-->
+                    <span class="iMIge-image-fg">
+
+
+                    </span>
+					<div class="iMIge-close iMIge-close-new iMIge_close_el">
+						<a href="javascript:">&times;</a>
+					</div>
+				</div>
+			</div>
+			<div class="iMIge-nav iMIge_nav">
+				<a class="iMIge-prev" href="#">
+					<s></s>
+				</a>
+				<a class="iMIge-next" href="#">
+					<s></s>
+				</a>
+			</div>
+
+			<div class="iMIge-exif iMIge_exif" style="display: none;">
+				<dl class="iMIge-exif-base">
+					<dt>{$Think.lang.Title}:</dt><dd class="iMIge-exif-base-fileName">VID_20160502_132942.mp4</dd>
+					<dt>{$Think.lang.Time}:</dt><dd class="add_time">2016-05-02 下午 1:29:45</dd>
+					<dt>{$Think.lang.Place}:</dt><dd class="iMIge-exif-local">-</dd>
+				</dl>
+				<dl class="iMIge-exif-size">
+					<dt>{$Think.lang.Size}:</dt><dd class="width_heigth">720 x 1280px</dd>
+					<dt>{$Think.lang.Degreerotation}:</dt><dd>0&deg;</dd>
+					<dt>{$Think.lang.Filesize}:</dt><dd class="size">2.35MB</dd>
+				</dl>
+				<dl class="iMIge-exif-meta">
+					<dt>{$Think.lang.Manufacturer}:</dt><dd>-</dd>
+					<dt>{$Think.lang.Model}:</dt><dd>-</dd>
+					<dt>{$Think.lang.Focallength}:</dt><dd>-</dd>
+					<dt>{$Think.lang.Timeexposure}:</dt><dd>-</dd>
+					<dt>ISO:</dt><dd>-</dd>
+				</dl>
+			</div>
+
+		</div>
+
+
+		<!-- end of bd-->
+		<div class="iMIge-ft" style="height:10%;min-height:50px">
+			<div class="iMIge-opt iMIge_operation" style="display: block;">
+				<ul>
+					<li class="iMIge-down" data-id=""><a href="#" >{$Think.lang.Download}</a></li>
+					<li class="iMIge-info" data-id=""><a href='javascript:void("gallery/img_info")'>{$Think.lang.Information}</a></li>
+					<li class="iMIge-del" data-id=""><a href="#" >{$Think.lang.Delete} </a></li>
+				</ul>
+			</div>
+			<div class="iMIge-extra"></div>
+		</div>
+		<!-- end iMIge-ft -->
+	</div>
+</div>
+
+
+<!-- 加到相册 -->
+<div class="m-p animated3 pulse ablum-check-padd clearfix dialog" style="width: 350px;display:none; margin-left: -175px; left: 50%; top: 81px; z-index: 115;" id="change_album_dialog">
+	<div class="m-p-head clearfix">
+		<div class="m-p-head-ct">
+			<span>{$Think.lang.Addphoto}</span>
+		</div>
+		<a href="javascript:void(0)" class="close_btn"></a>
+	</div>
+	<div class="m-p-frame dialog_body">
+		<div id="album_dialog_list" class="picker-list gallery-list">
+			<ul class="clearfix" id="album_name">
+				<volist name="album_data" id="vo">
+					<li class="move-gallery-item" data-id="{$vo.id}">
+						<div class="contactlist-container">
+							<div class="contactlist-avatar">
+								<img class="move_gallery_img" src="{$vo.photo_path}" />
+							</div>
+							<p class="contact-nickname">{$vo.album_name}</p>
+						</div>
+					</li>
+				</volist>
+
+
+
+			</ul>
+			<div class="dia-add-album">
+				<div id="create_album_area" class="contactlist-container">
+					<div class="contactlist-avatar"></div>
+					<p class="contact-nickname">{$Think.lang.Newalbum}</p>
+				</div>
+				<div id="create_album_content" class="contactlist-container" style="display:none">
+					<div class="contactlist-avatar"></div>
+					<div class="dia-add-album-area">
+						<input id="create_album_input" type="text" placeholder="{$Think.lang.Newalbumname}" class="dialog-input" />
+						<div class="disabled create-album-confirm button" id="M-Gen-button-106">
+							<span class=" btn-ct">{$Think.lang.Determine}</span>
+						</div>
+						<div class="create-album-cancel button" id="M-Gen-button-107">
+							<span class=" btn-ct">{$Think.lang.Cancel}</span>
+						</div>
+					</div>
+					<div style="position:relative;">
+						<div class="gallery-tip-box" style="display:none;">
+							<p></p>
+							<em class="gallery-tip-triangle"></em>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gray-layer-t"></div>
+			<div class="gray-layer-b"></div>
+		</div>
+	</div>
+	<div class="m-p-foot button-area clearfix tl-r">
+		<div class="fl-l button" id="M-Gen-button-100">
+			<span class=" btn-ct">{$Think.lang.Cancel}</span>
+		</div>
+		<div class="disabled default button" id="moveGalleryBtn">
+			<span class=" btn-ct">{$Think.lang.Move}</span>
+		</div>
+		<div class="disabled default button" id="copyGalleryBtn">
+			<span class=" btn-ct">{$Think.lang.Copy}</span>
+		</div>
+	</div>
+</div>
+
+<div class="gray_box" id="__mask__" style="z-index: 109; width: 100%; height: 100%;display: none;"></div>
+
+<include file='Common/footer' />

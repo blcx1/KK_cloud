@@ -1,0 +1,65 @@
+/*注册与更换密码*/
+#register-form{
+    margin-left:0;
+}
+.form-item label{
+    display:inline;
+    padding-left:0;
+    line-height:16px;
+}
+
+#verifyimg{
+    margin-left:66%;
+}
+#form-account,#form-pwd,#form-equalTopwd,#form-email{
+    width:95% ;
+}
+#authCode{
+    display:block;
+    width:33%;
+}
+.form-font{
+    position:relative;
+    top:-22px;
+}
+font{
+    display:inline-block;
+}
+
+
+.form-item {
+		width: 95%;
+		height:auto;
+	}
+.regbox{
+    width:100%;
+
+}
+.item-email-wrap{
+    height:auto;
+}
+.reg-form{
+    height:100%;
+    width:100%;
+    margin-left:3%;
+}
+.input-tip span i{
+    margin-left:0;
+}
+#form-item-pwdRepeat{
+    margin-top:2%;
+}
+.form-authcode{
+    width:70%;
+}
+@media all and (orientation:landscape){
+    body{
+        overflow-y:auto;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    .regbox{
+        width:420px;
+    }
+}

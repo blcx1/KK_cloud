@@ -1,0 +1,15 @@
+<script type="text/javascript" src="__PUBLIC__/js/right_user_info.js"></script>
+<div class="vh-avator-area">
+		<div id="g_userinfo" class="gl-lang-container">
+			<div class="account-avator">
+				<img src="{$user_info.portrait}" id="g_useravator">
+				<div class="account-avator-bg"></div>
+			</div>
+			<span class="account-name" id="g_username" >{$user_info.nick_name} / {$Think.lang.Account}</span>
+			<em class="ico-lang-down"></em>
+		</div>
+		<ul class="gl-lang-ul gl-lang-ul-account" id="lang_ul2" style="display:none">			
+			<li><a href="{:getBaseURL()}Home/Index/security.html" target="_blank" class="gl-link" id="g_my_account">{$Think.lang.Account}</a></li>			
+			<li><a href="{:getBaseURL()}Home/Index/logout.html" class="gl-link" id="g_logout">{$Think.lang.Logout}</a></li>
+		</ul>
+	</div>

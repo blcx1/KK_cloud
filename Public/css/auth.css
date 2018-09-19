@@ -1,0 +1,27 @@
+@media(max-width:480px){
+    .layout,.wrap{
+        width:100%;
+    }
+    
+    .btn_tip{
+        width:100%;
+    }
+    .btn_commom{
+        margin-left:0;
+    }
+    .identity_phone_effect{
+        width:100%;
+    }
+    .mod_tip_bd{
+        width:100%;
+    }
+   
+    .mod_acc_tip{
+        padding:0 ;
+    }
+}
+@media (min-width:768px) and (max-width:1023px){
+    .n-footer{
+        margin-top:-24%;
+    }
+}

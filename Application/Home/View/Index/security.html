@@ -1,0 +1,512 @@
+<include file='Common/head' />
+<style type="text/css" media="print">
+	.n-logo-area .logout,
+	.n-account-area,
+	.n-frame,
+	.n-main-nav,
+	.n-footer{display : none; }
+</style>
+<script type="text/javascript">
+	var bg_url = "{$user_info.portrait}";
+</script>    
+<div class="wrapper blockimportant">
+    <div class="wrap">
+        <div class="layout bugfix_ie6 dis_none">
+            <div class="n-logo-area clearfix">
+                <a class="fl-l" href="{:get_home_url(false)}">
+                    <img src="__PUBLIC__/images/logo.png" style="width:50px;">
+                </a>
+                <a class="fl-r logout" href="{:get_home_url(false)}">
+                    {$Think.lang.Home}
+                </a>
+                <a id="logoutLink" class="fl-r logout" style="margin-right: 5px;" href="{:getBaseURL()}Home/Index/logout.html">{$Think.lang.Logout} | </a>
+
+            </div>
+            <!--头像 名字-->
+            <div class="n-account-area-box">
+                <div class="n-account-area clearfix">
+                    <div class="na-info">
+                        <p class="na-name" style="color:#999;font-weight:normal;">{$user_info.nick_name}</p>
+                    </div>
+                    <script type="text/javascript">
+                        portrait = "{$user_info.portrait}";
+                    </script>
+                    <div class="na-img-area fl-l">
+                        <!--na-img-bg-area不能插入任何子元素-->
+                        <div class="na-img-bg-area"><img alt="photo" src="{$user_info.portrait}"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="layout">
+            <div class="n-main-nav clearfix">
+                <ul>
+                    <li class="current account-security">
+                        <a >{$Think.lang.Accountsecurity}</a>
+                        <em class="n-nav-corner"></em>
+                    </li>
+                    <li class="personal-information">
+                        <a  >{$Think.lang.Personalinformation}</a>
+                        <em class="n-nav-corner"></em>
+                    </li>                    
+                    <li class="cloud-service">
+                        <a  >{$Think.lang.Cloudservices}</a>
+                        <em class="n-nav-corner"></em>
+                    </li>
+                </ul>
+            </div>
+            <div class="n-frame security-level">
+                <div class="title-item title_security_wap ">
+                    <h4 class="title-big dis-inb">{$Think.lang.Securitylevel}</h4>
+                    <em class="space6"></em>
+                    <p class="font-normal dis-inb wap_colb2"><em class="light-num" style="padding:0">
+                        <span class="score_2">75</span>
+                    </em>{$Think.lang.Branch}</p>
+                    <div class="slider-area dis-inb vert-m" >
+                        <div class="slider-bar-bg"></div>
+                        <div class="slider-bar-line score_bg_2" style="width:75%;"></div>
+                        <em class="drag-ico" style="left:75%"></em>
+                    </div>
+                    <p class="font-normal dis-inb security_level_txt">
+                        <span class="score_outer_2">{$Think.lang.Existence}<em class="light-num">1</em>{$Think.lang.Risk}</span>
+                    </p>
+                </div>
+                <ul class="device-detail-area">
+                    <li id="changePassword" class="click-row">
+                        <div class="font-img-item clearfix">
+                            <em class="fi-ico fi-ico-lock"></em>
+                            <p class="title-normal dis-inb">{$Think.lang.Accountpassword}</p>
+
+                            <p class="font-default">
+                                {$Think.lang.Protectaccount}
+                            </p>                            
+                            <p class="title-normal wap-desc">
+                                {$Think.lang.Modify}
+                            </p>
+                            <i class="arrow_r"></i>
+                        </div>
+                        <div class="ada-btn-area" id="btnUpdatePassword">
+                            <a  class="n-btn">{$Think.lang.Modify}</a>
+                        </div>
+                    </li>
+                    <li id="changeEmail" class="click-row">
+                        <div class="font-img-item clearfix">
+                            <em class="fi-ico fi-ico-email"></em>
+                            <p class="title-normal dis-inb">{$Think.lang.Securemailbox}</p>                         
+                            <p class="title-normal display_email">
+                                {$display_email}
+                            </p>
+                            <p class="font-default">{$Think.lang.Mailboxtip}</p>
+                            <i class="arrow_r"></i>
+                        </div>
+                        <div class="ada-btn-area" id="btnUpdateEmail">
+                            <!--正常状态-->
+                            <a  class="n-btn">{$Think.lang.Modify}</a>
+                        </div>
+                    </li>
+                </ul>
+                <p class="title-line"></p>
+            </div>
+            <!--个人信息-->
+            <div class="n-frame personal-information" style="display:none">
+                <div class="uinfo c_b">
+                    <div class="">
+                        <div class="main_l">
+                            <div class="naInfoImgBox t_c">
+                                <div class="na-img-area marauto">                                    
+                                    <div class="na-img-bg-area" id='na-img-bg-area'><img alt="photo" src="{$user_info.portrait}"></div>
+                                    <em class="na-edit"></em>
+                                </div>
+                                <div class="naImgLink">
+                                    <a class="color4a9" id='sethead' href="javascript:void(0)" >{$Think.lang.Sethead}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_r">
+                            <div class="framedatabox">
+                                <div class="fdata">
+                                    <a href='javascript:void(0);' class="color4a9 fr"   id="editInfo"><i class="iconpencil"></i>{$Think.lang.Edit}</a>
+                                    <h3>{$Think.lang.Basicdata}</h3>
+                                </div>
+                                <div class="fdata lblusername">
+                                    <p><span>{$Think.lang.Username}</span><span class="value" > <span style="color:#999;" id='user_name_val'>{$user_info.user_name}</span> </span></p>
+                                </div>
+                                <div class="fdata lblnickname">
+                                    <p><span>{$Think.lang.Nickname}</span><span class="value" > <span style="color:#999;" id='nick_name_val'>{$user_info.nick_name}</span> </span></p>
+                                </div>
+                                <div class="fdata lblbirthday">
+                                    <p><span>{$Think.lang.Birthday}</span><span class="value" id='birthday_val'> {$user_info.birthday}</span></p>
+                                </div>
+                                <div class="fdata lblgender">
+                                    <p><span>{$Think.lang.Gender}</span><span class="value" id='gender_val'>
+                                        	<if condition='($user_info["gander"] eq 0)'>
+                                        		{$Think.lang.Girl}
+                                        	<elseif condition='($user_info["gander"] eq 1)' />
+                                        		{$Think.lang.Boy}
+                                        	<elseif condition='($user_info["gander"] eq 2)' />
+                                        		{$Think.lang.Secrecy}
+                                        	</if>
+                                        	</span></p>
+                                </div>
+                                <div class="fdata lblphone">
+                                    <p><span>{$Think.lang.Telephone}</span><span class="value" id='phone_val'> {$user_info.tel}</span></p>
+                                </div>
+                                <div class="fdata lbladdress">
+                                    <p><span>{$Think.lang.Address}</span><span class="value" id='address_val'> {$user_info.address}</span></p>
+                                </div>
+                                <div class="btn_editinfo">
+                                    <a id="editInfoWap" class="btnadpt bg_normal" >{$Think.lang.Editinformation}</a>
+                                </div>
+                                <div class="logout_wap logout_wap_btnadpt">
+                                    <a class="btnadpt bg_white" href="{:getBaseURL()}Home/Index/logout.html">{$think.lang.Logout}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logout_wap">
+                        <a class="btnadpt bg_white" href="{:getBaseURL()}Home/Index/logout.html">{$Think.lang.Logout}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="n-frame dis_none_pc">
+                <div class="title-item title_security_wap">
+                    <h4 class="title-big dis-inb">{$Think.lang.Other}</h4>
+                </div>
+                <ul class="device-detail-area device-detail-area-active">
+                    <li>
+                        <div class="font-img-item clearfix">
+                            <em class="fi-ico fi-ico-info"></em>
+                            <p class="title-normal dis-inb">{$Think.lang.Modifydata}</p>
+                            <span class="title-normal wap-desc"></span>
+                            <p class="title-normal wap-desc"></p>
+                            <i class="arrow_r"></i>
+                            <a class="pos_opc" href="javascript:void(0)">{$Think.lang.Modifydata}</a>
+                        </div>
+                    </li>                    
+                </ul>
+                <p class="title-line" ></p>
+            </div>
+            <!--退出-->
+            <div class="logout_wap logout_wap_active" >
+                <a class="btnadpt bg_white"  href="{:getBaseURL()}Home/Index/logout.html" >{$Think.lang.Logout}</a>
+            </div>
+            <!--云服务-->
+            <div class="n-frame" style="display:none;">
+                <div class="title-item">
+                    <h4 class="title-big dis-inb">{$Think.lang.Accountauthorization}</h4>
+                </div>
+                <ul class="n_sevice c_b">
+                    <li>
+                        <dl>
+                            <dt>
+                                <a target="_blank" class="icon_sv sv5" href="http://www.kenxinda.com/" title="{$Think.lang.KXDwebsite}"></a>
+                            </dt>
+                            <dd>
+                                <h4><a target="_blank" href="http://www.kenxinda.com/" title="{$Think.lang.KXDwebsite}">{$Think.lang.KXDwebsite}</a></h4>
+                                <p class="nowrap">{$Think.lang.KXDcontent}</p>
+                            </dd>
+                        </dl> 
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <a target="_blank" class="icon_sv sv4" href="{:get_home_url(false)}" title="{$Think.lang.Cloudservices}"></a>
+                            </dt>
+                            <dd>
+                                <h4><a target="_blank" href="{:get_home_url(false)}" title="{$Think.lang.Cloudservices}">{$Think.lang.Cloudservices}</a></h4>
+                                <p class="nowrap">{$Think.lang.Cloudcontent}</p>
+                            </dd>
+                        </dl> 
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <a target="_blank" class="icon_sv sv3" href="http://appstore.kenxinda.com/" title="{$Think.lang.Appstore}"></a>
+                            </dt>
+                            <dd>
+                                <h4><a target="_blank" href="http://appstore.kenxinda.com/" title="{$Think.lang.Appstore}">{$Think.lang.Appstore}</a></h4>
+                                <p class="nowrap">{$Think.lang.Appstorecontent}</p>
+                            </dd>
+                        </dl> 
+                    </li>
+                </ul>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<!-- 设置头像 -->
+<div class="popup_mask" style="display: none;" id='set_head'>
+    <div class="bkc"></div>
+    <div class="mod_wrap">
+        <div class="mod_acc_tip layeruploadface" style="display: block;">
+            <div class="mod_tip_hd">
+                <h4>
+                    {$Think.lang.ModifyAvatar}
+                </h4>
+                <a class="btn_mod_close" href='javascript:void(0);' title=""><span>{$Think.lang.Close}</span></a>
+            </div>
+            <div class="mod_tip_bd preupload" style="display: block;">
+                <iframe style="display:none;" width="0" height="0" name="uploadPhoto" id="uploadPhoto"></iframe>
+                <div class="wapbox accset">
+                    <dl>
+                        <dt><strong class="wap_title_big">{$Think.lang.UploadPicture}</strong><div id="preview"></div></dt>
+                        <dd>
+                            <div class="uplode_img" style='margin-bottom:14px;'>
+                                <input type="button" onclick="javascript:return false;" class="btn_tip btn_commom" value="{$Think.lang.UploadAvatar}">
+                                <input id="portrait" class="uplodefile" name="portrait" type="file" autocomplete="off" >
+                            </div>
+                            <p>{$Think.lang.Phototips}</p>
+                        </dd>
+                    </dl>
+                    <div class="err_tip wng_fmt err_tip_independ" style="display:none;" id='err_photo'>{$Think.lang.ErrPicture}</div>
+                </div>
+                <div class="tip_btns">
+                    <input class="btn_tip btn_commom" type="button" value="{$Think.lang.Save}" onclick="javascript:ajax_file_upload();"/>
+                    <a href='javascript:void(0);' class="btn_tip btn_back" href="" title="{$Think.lang.Cancel}">{$Think.lang.Cancel}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 编辑个人信息资料 s -->
+<div class="popup_mask" style="display: none;">
+    <div class="bkc"></div>
+    <div class="mod_wrap">
+        <div class="mod_acc_tip layereditinfo" style="display: block;">
+            <div class="mod_tip_hd">
+                <h4>{$Think.lang.Editinformation}</h4>
+                <a class="btn_mod_close"  title=""><span>{$Think.lang.Close}</span></a>
+            </div>
+            <div class="mod_tip_bd">
+                <form action="" method="post" name=''>
+                    <div class="wapbox editbasicinfo">
+                        <dl class="infobox c_b">
+                            <dt>
+                                {$Think.lang.Username}
+                            </dt>
+                            <dd>
+                                <label class="labelbox">
+                                    <input class="nickname" type="text" size="30" name="username" value="{$user_info.user_name}" style="border: 1px solid #e8e8e8;"/>
+                                </label>
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: block;margin-top: -10px;" id='err_username'></div>
+                            <dt>
+                                {$Think.lang.Nickname}
+                            </dt>
+                            <dd>
+                                <label class="labelbox"><input class="nickname" type="text" name="nickname" maxlength="20" value="{$user_info.nick_name}" style="border: 1px solid #e8e8e8;"/></label>
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: none;margin-top: -10px;" id='err_nickname'></div>
+                            <dt>
+                                {$Think.lang.Birthday}
+                            </dt>
+                            <dd>
+                                <label class="labelbox">
+                                    <input class="nickname" type="text" size="30" name="uptime" value="{$user_info.birthday}" onclick="WdatePicker({lang:'<if condition="$lang_iso eq 'zh-cn'">zh-cn<elseif condition="$lang_iso eq 'zh-hk'" />zh-tw<else />en</if>',isShowWeek:true,dateFmt:'yyyy-MM-dd'})" style="border: 1px solid #e8e8e8;" readonly="readonly"/>
+                                </label>
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;margin-top: -10px;display: none;" id='err_uptime'></div>
+                            <dt>
+                                {$Think.lang.Gender}
+                            </dt>
+                            <dd class="checkbox infosex">
+                                <input style='margin-left: 3px;margin-right: 11px;' class="nickname icon_select iconinfosex" type="radio"  name="sex" value='0' <if condition='$user_info.gander eq 0'> checked='checked' </if>/>{$Think.lang.Girl}
+                                <input style='margin-left: 3px;margin-right: 11px;' class="nickname icon_select iconinfosex" type="radio"  name="sex" value='1' <if condition='$user_info.gander eq 1'> checked='checked' </if>/>{$Think.lang.Boy}
+                                <input style='margin-left: 3px;margin-right: 11px;' class="nickname icon_select iconinfosex" type="radio" name="sex" value='2' <if condition='$user_info.gander eq 2'> checked='checked' </if>/>{$Think.lang.Secrecy}
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: none;margin-top: -10px;" id='err_sex'></div>
+                            <dt>
+                                {$Think.lang.Telephone}
+                            </dt>
+                            <dd>
+                                <label class="labelbox">
+                                    <input class="nickname" type="text" size="30" name="phone" value="{$user_info.tel}" style="border: 1px solid #e8e8e8;"/>
+                                </label>
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: none;margin-top: -10px;" id='err_phone'></div>
+                            <dt>
+                                {$Think.lang.Address}
+                            </dt>
+                            <dd>
+                                <label class="labelbox">
+                                    <input class="nickname" type="text" size="30" name="address" value="{$user_info.address}" style="border: 1px solid #e8e8e8;"/>
+                                </label>
+                            </dd>
+                            <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: none;margin-top: -10px;" id='err_address'></div>
+                        </dl>
+                        <div class="err_tip empty_name err_tip_independ" style="color: red;margin-left: 88px;display: none;margin-top: -10px;" id='err_set_userinfo'></div>
+                    </div>
+                    <div class="tip_btns" style='padding-top: 0;'>
+                        <input type="button" name='' class="btn_tip btn_commom" value='{$Think.lang.Preservation}'  id='set_userinfo'>
+                        <!-- <input class="btn_tip btn_commom" type="submit" value="{$Think.lang.Save}"> -->
+                        <a class="btn_tip btn_back" >{$Think.lang.Cancel}</a>
+                    </div>
+                    <div class="tip_btns_btnOK set_userinfo" style="display:none;">
+                        <a id="button_pass" class="btn_commom-btnOK" >{$Think.lang.Preservation}</a>
+                    </div>
+                    <div class="btn_tip_btnCancel" style="display:none;">
+                        <a class="btnCancel" >{$Think.lang.Cancel}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码 s -->
+<div class="popup_mask">
+    <div class="bkc"></div>
+    <div class="mod_wrap">
+        <div id="popUpdatePassword" class="mod_acc_tip" style="display:none;">
+            <div class="mod_tip_hd">
+                <h4>{$Think.lang.Modifypassword}</h4>
+                <a class="btn_mod_close"  title=""><span>{$Think.lang.Close}</span></a>
+            </div>
+            <div class="mod_tip_bd">
+                <div class="modify_pwd">
+                    <dl>
+                        <dt>{$Think.lang.Originalpassword}</dt>
+                        <dd class="grpOldPass">
+                            <label class="labelbox"><input class="oldPass" name='oldPass' type="password" autocomplete="off" ></label>
+                            <!-- 错误信息提示 -->
+                            <div ID='err_oldpass' class="empty_pwd err_tip err_tip_independ" style="display:none"></div>
+                        </dd>
+                        <dt>{$Think.lang.Newpassword}</dt>
+                        <dd class="grpNewPass">
+                            <label class="labelbox"><input class="newPass" name='newPass' type="password" autocomplete="off" disableautocomplete=""></label>
+                            <label class="labelbox"><input class="newPass2" name='newPass2' type="password" autocomplete="off" placeholder="{$Think.lang.ConfirmPassword}"/></label>
+                            <div id='err_new_pass' class="empty_pwd err_tip err_tip_independ" style="display:none"></div>
+                        </dd>
+                        <dl class="capt_box">
+                            <dt>{$Think.lang.VerifiCode}</dt>
+                            <dd class="inputcode">
+                                <label class="labelbox chkcode"><input type="text"  name='pass_code'  autocomplete="off"  class="verification-code"></label>
+                                <img alt="Pictureverifi"  src="{:getBaseURL()}Home/Index/verify/v/change_password_verify/1474597513457" class="icode_image code-image chkcode_img"  id= "verifyimg"/>
+                                <a id="pass_Change" style="text-decoration: underline;" href="#" class="pass-change-verifyCode">{$Think.lang.Change}</a>
+                            </dd>
+                            <div style="display:none;" class="wng_capt err_tip err_tip_independ" id='err_pass_code'></div>
+                        </dl>
+                    </dl>
+                </div>
+                <div class="tip_btns">
+                    <input type='button' class="btn_tip btn_commom btnOK" id = 'button_pass'  value="{$Think.lang.Determine}">
+                    <a class="btn_tip btn_back btnCancel">{$Think.lang.Cancel}</a>
+                </div>
+                <div class="tip_btns_btnOK tip_btns_pass" style="display:none;">
+                    <a id="button_pass" class="btn_commom-btnOK" >{$Think.lang.Determine}</a>
+                </div>
+                <div class="btn_tip_btnCancel" style="display:none;">
+                    <a class="btnCancel" >{$Think.lang.Cancel}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码成功 s -->
+<div class="popup_mask">
+    <div class="bkc"></div>
+    <div class="mod_wrap">
+        <div class="mod_acc_tip" id="popUpdatePasswordSuccess" style="display:none">
+            <div class="mod_tip_hd">
+                <h4>{$Think.lang.Modifypassword}</h4>
+                <a class="btn_mod_close"  href="#" id='btn_close' title=""><span>{$Think.lang.Close}</span></a>
+            </div>
+            <div class="mod_tip_bd">
+                <div class="wapbox">
+                    <div class="t_c mar30">
+                        <div class="txt_ff6"><em class="acctip_icon acctip_icon_2"></em>{$Think.lang.Successfully}</div>
+                    </div>
+                    <div class="t_c mar30">
+                        <p><span class="logoutCountdown"></span> {$Think.lang.Seconds}</p>
+                    </div>
+                </div>
+                <div class="tip_btns wap_btn_abs">
+                    <a class="btn_tip btn_commom btnReturn" href="javascript:void(0)" id='clear'>{$Think.lang.ClickClose}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改邮箱 s-->
+<div class=" modal_container" style="display: none; height:100%; width: 100%">
+    <div class="modal_msk"></div>
+    <div class=" modal_tip mod_acc_tip" id="modal-id-0" style="display: block; top: 17%;">
+        <div id="popUpdateemail" class="mod_acc_tip" >
+            <div class="mod_tip_hd">
+                <h4>{$Think.lang.Modifymailbox}</h4>
+                <a class="btn_mod_close" title=""><span>{$Think.lang.Close}</span></a>
+            </div>
+            <div class="mod_tip_bd"  style='display:block'>
+                <div class="modify_pwd">
+                    <dl>
+                        <dt>{$Think.lang.Newmailbox}</dt>
+                        <dd class="grpOldPass">
+                            <label class="labelbox"><input class="new_email" name='new_email' type="text" autocomplete="off"  style="border: 1px solid rgb(131, 131, 131);"></label>
+                            <!-- 错误信息提示 -->
+                            <div class="wng_pwd err_tip err_tip_independ1"  id= 'err_eamil' style="display:none;"></div>
+                        </dd>
+                        <dt>{$Think.lang.Loginpassword}</dt>
+                        <dd class="grpNewPass">
+                            <label class="labelbox"><input class="pass" name='pass' id= 'Pass' type="password"  autocomplete="off" style="border: 1px solid rgb(131, 131, 131);"></label>
+
+                            <!-- 错误信息显示时隐藏 -->
+                            <div class="eq_email err_tip_independ err_tip" id= 'err_pass' style="display:none;"></div>
+                        </dd>
+                        <dl class="capt_box" style="display: block;">
+                            <dt>{$Think.lang.VerifiCode}</dt>
+                            <dd class="inputcode">
+                                <label class="labelbox chkcode"><input type="text" autocomplete="off" name='icode' class="icode" style="border: 1px solid rgb(232, 232, 232);"></label>
+                                <img alt="{$Think.lang.Pictureverifi}"  src="{:getBaseURL()}Home/Index/verify/v/change_email_verify/1474597513457" class="icode_image code-image chkcode_img" id="code_verifyimg">
+                                <a id="email_change" style="text-decoration: underline;" href="#" class="pass-change-verifyCode email_change">{$Think.lang.Change}</a>
+                            </dd>
+                            <div style="display:none;" id= 'err_icode' class="wng_capt err_tip err_tip_independ">{$Think.lang.Verifyerror}</div>
+                        </dl>
+                    </dl>
+                </div>
+                <div class="tip_btns">
+                    <input type="button"  class="btn_tip btn_commom " value='{$Think.lang.Nextstep}' id='button_email'>
+                    <a class="btn_tip btn_back btnCancel" >{$Think.lang.Cancel}</a>
+                </div>
+                <div class="tip_btns_btnOK button_email" style="display:none;">
+                    <a id="button_pass" class="btn_commom-btnOK" >{$Think.lang.Nextstep}</a>
+                </div>
+                <!-- <div class="btn_tip_btnCancel" style="display:none;">
+                     <a class="btnCancel" >{$Think.lang.Cancel}</a>
+                 </div>-->
+            </div>
+            <div class='emailevrity' style = 'text-align:center;display:none' >
+                <form action="{:getBaseURL()}Home/Index/forgetPassword.html" method="post" name='getcode'>
+
+                    <div style='padding: 30px'>
+                        {$Think.lang.Sendcodeto} <span class="text_mail" style="color:red;">{$email}</span>
+                    </div>
+                    <div class="mod inputsend ">
+                        <label class="input_bg"> <input class="resendinput" type="text" rule="^\d{6,8}$" name="verify_code"  /> </label>
+                        <input type="button" value='{$Think.lang.Getverifi}' class="verify-sendbtn btn_tip btn_commom btn-submit" id='setmail_verify-sendbtn' style='color:#000;background:white;border: 1px solid #e8e8e8;height: 40px;' >
+                        <div style="display: block;margin-top: 15px;margin-left: 63px;text-align: left;" class="wng_capt err_tip err_tip_independ" id="err_set_email_code">   </div>
+                    </div>
+                    <div class="tip_btns">
+                        <input type="button" class="btn_tip  btn-submit btn_commom-btnOK" id='submit_code'  value="{$Think.lang.Determine}">
+                        <a class="btn_tip btn_back btnCancel" >{$Think.lang.Cancel}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-layer-shade" id="layui-layer-shade1" times="1" style="z-index:19891014; background-color:#000; opacity:0.3; filter:alpha(opacity=30);display:none;"></div>
+<div class="layui-layer layui-layer-dialog layui-layer-molv layer-anim" id="layui-layer1" type="dialog" times="1" showtime="0" contype="string" style="z-index: 19891015; top: 397px; left: 408px;display:none;">
+    <div class="layui-layer-title" style="cursor: move;">
+		{$Think.lang.Info}
+    </div>
+    <div id="" class="layui-layer-content">
+        {$Think.lang.Successfully}
+    </div>
+    <span class="layui-layer-setwin"></span>
+    <div class="layui-layer-btn">
+        <a class="layui-layer-btn0">{$Think.lang.Determine}</a>
+    </div>
+</div>
+<include file='Common/login_footer' />
+<include file='Common/footer' />

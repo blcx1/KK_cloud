@@ -1,0 +1,13 @@
+<script type="text/javascript" src="__PUBLIC__/js/language.js"></script>
+<div class="global-language">
+	<form action="" method="get" name="lang_form" id="lang_form">
+		<p class="gl-lang-container" id="check_lang">
+			<em class="ico-lang-bg"></em>
+			<select name="l"  onchange="javascript:$('#lang_form').submit();" id="g_current_lang">
+				<volist name='iso_lang_list' id='vo'>
+					<option value="{$key}" <if condition = " $vo.name eq $lang_name "> selected="selected"</if>>{$vo.name}</option>
+				</volist>												
+			 </select>
+		</p>
+	</form>
+</div>

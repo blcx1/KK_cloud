@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+}
+.blockimportant .layout{
+    width:100%;
+}
+.n-logo-area{
+    padding:30px 4px;
+}
+.na-img-area,.na-name{
+    display:none;
+}
+.n-main-nav li a{
+    padding:0 22px;
+}
+.n-main-nav li{
+    max-width:40%;
+}
+.n-main-nav ul{
+    width:100%;
+}
+.slider-area{
+    width:100%;
+}
+.security-level{
+    min-height:100%;
+}
+.slider-area {
+    display:none;
+}
+.n-footer{
+    margin-top:0;
+}
+.n-logo-area a:first-of-type{
+    margin-top:-13px;
+}
+.font-default,#changeEmail .wap-desc{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width:42%;
+}
+
+p.font-default:hover:hover{
+    max-width:100%;
+}
+.main_r{
+    width:100%;
+}
+
+.main_l{
+    display:none;
+}
+.n_sevices{
+    min-height:288px;
+}
+
+.n-personal-information {
+    min-height: 338px;
+}
+
+.n_sevice li{
+    width:100%;
+}
+.fdata{
+    line-height:38px;
+}
+
+.mod_acc_tip{
+    width:88%;
+}
+.popup_mask .mod_acc_tip{
+    left:0;
+    margin-left:1%;
+    top:0;
+    margin-top:22%;
+}
+
+.modify_pwd{
+    padding:30px 0 0 10px;
+}
+.verification-code{
+    border:1px solid rgb(131, 131, 131)
+}
+.btn_mod_close{
+    display:none;
+}
+
+.labelbox input, .input_bg input{
+    padding:10px 0;
+}
+body{
+    overflow-y:auto;
+}
+.modal_msk{
+    min-height:111%;
+}
+.resendinput{
+    border:solid 1px #e8e8e8;
+}
+#err_set_email_code{
+    margin-left:20%;
+}
+.infobox dt{
+   text-align:left;
+    float:none;
+}
+
+.nickname{
+    width:100%
+}
+.infosex input{
+    width:6%;
+}
+.modify_pwd input{
+    width:100%;
+}
+.editbasicinfo{
+    padding:40px 0 0 4px;
+}
+.labelbox, .input_bg{
+    display:inline;
+}
+.inputcode input{
+    width:50%;
+}
+.modal_container .modal_msk{
+    position:fixed;
+}
+.btnCancel{
+    display:inline-block !important;
+}
+.btn_commom{
+    line-height:33px;
+}
+.btnCancel{
+    display:inline-block;
+}
+
+.btn_commom{
+	background: #4185da;
+	border: 1px solid #4185da;
+	color: #fff ;
+	display:inline-block;
+	width:28%;
+	padding: .1rem 0;
+	text-align: center;
+	font-size:14px;
+	-webkit-border-radius: 0.2rem;
+	-moz-border-radius: 0.2rem;
+	-o-border-radius: 0.2rem;
+	border-radius: 1.2rem;
+	line-height: 33px;
+	cursor: pointer;
+}
+#changeEmail .wap-desc{
+    font-size:12px;
+}
+.n-btn{
+    padding:7px 13px;
+}
+#btnUpdatePassword{margin-top:-6px;}
+.security-level .title_security_wap,.security-level .font-default,.security-level .wap-desc{display:none;}
+#changePassword .dis-inb{margin-top:10px;}
+.font-default, #changeEmail .wap-desc{
+    overflow:visible;
+}
+@media screen and (max-device-width: 320px){body{-webkit-text-size-adjust:none}}
+@media screen and (max-device-width: 480px){body{-webkit-text-size-adjust:none}}
+@media only screen and (-webkit-min-device-pixel-ratio: 2){body{-webkit-text-size-adjust:none}}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){body{-webkit-text-size-adjust:none}
+
+@media all and (orientation:landscape){
+    .btn_commom{
+        background: #4185da;
+        border: 1px solid #4185da;
+        color: #fff ;
+        display:inline-block;
+        width:28%;
+        padding: .1rem 0;
+        text-align: center;
+        font-size:16px;
+        -webkit-border-radius: 0.2rem;
+        -moz-border-radius: 0.2rem;
+        -o-border-radius: 0.2rem;
+        border-radius: 1.2rem;
+        line-height: 33px;
+        cursor: pointer;
+    }
+
+
+}
+@media (min-width:768px) and (max-width:1023px){
+    .main_r{
+        margin-top:-5%;
+    }
+    .popup_mask .mod_acc_tip{
+        margin-left:4%;
+    }
+    .layereditinfo .mod_tip_bd{
+        margin-left:28%;
+    }
+    .layereditinfo .tip_btns{
+        margin-left:-33%;
+    }
+}

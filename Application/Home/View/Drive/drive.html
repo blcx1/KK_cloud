@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>云盘</title>
+ 	<link type="text/css" rel="stylesheet" href="__PUBLIC__/css/main.970e2ece701f4b22c3fc09f2d7d4c1b5.css">
+	 <link type="text/css" rel="stylesheet" href="__PUBLIC__/css/animation.css">
+	<script type="text/javascript" charset="utf-8" src="__PUBLIC__/js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		
+		
+		$('.list-item').hover(function(){
+			$('.edit-btn,.delete-btn,.put').click(function(e){
+				return false;//阻止冒泡事件发生
+			});
+			$(this).children(".file-name").children(".inline-toolbar").toggleClass("hidden");
+			
+			
+		})
+		
+		$('.list-item').click(function(){
+			$('.edit-btn,.delete-btn,.put').click(function(e){
+				return false;//阻止冒泡事件发生
+			});
+			
+			$(this).children(".file-name").children(".checkbox").toggleClass("checked");
+			
+			
+		})
+		
+		$('.edit-btn').click(function(){
+			var nametext = $(this).parent().parent().children(".name");
+			var val = nametext.text();
+			nametext.html('<input type="text" class="put" value="'+val+'">');
+			nametext.attr('class','name-input');
+			
+			 $("div:not(.put)").click(function(){
+				
+				nametext.html(val);
+				nametext.attr('class','name');
+				
+				
+			})
+		})
+		 
+		
+	})
+		
+		
+	
+	</script>
+
+</head>
+<body>
+	<div id="root">
+	   <div class="drive" data-reactid=".0">
+	    <div class="head" data-reactid=".0.0">
+	     <a href="/" class="kcloud-link" data-reactid=".0.0.0">云服务</a>
+	     <div class="title" data-reactid=".0.0.1">
+	      &gt;云盘
+	     </div>
+	    </div>
+	    <div class="drive-content" data-reactid=".0.1">
+	     <div class="left-panel" data-reactid=".0.1.0">
+	      <ul class="menu" data-reactid=".0.1.0.0">
+	       <li data-reactid=".0.1.0.0.0"><a href="#/all" class="item-name" data-reactid=".0.1.0.0.0.0">全部文件</a></li>
+	      </ul>
+	     </div>
+	     <div class="right-panel" data-reactid=".0.1.1">
+	      <div class="all" data-reactid=".0.1.1.0">
+	       <span data-reactid=".0.1.1.0.0"></span>
+	       <div class="toolbar" data-reactid=".0.1.1.0.1">
+	        <label class="button default" data-reactid=".0.1.1.0.1.0"><span data-reactid=".0.1.1.0.1.0.0">上传</span><input type="file" class="file-input" multiple="" data-reactid=".0.1.1.0.1.0.1" /></label>
+	        <button class="button" data-reactid=".0.1.1.0.1.2"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAANBAMAAACEMClyAAAAG1BMVEUEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD1EIllAAAACXRSTlMACSQsUIqLlZn1xWACAAAAOklEQVQIW2Mw7egIZgCBIAYGVTCjgYGBo6Oj3QHEAALGAigDSOFgcDQwoDKA+hsQjCCYlFkHkAtkAADGMBJQJp+w2wAAAABJRU5ErkJggg==" class="btn-icon" data-reactid=".0.1.1.0.1.2.0" /><span data-reactid=".0.1.1.0.1.2.1">新建文件夹</span></button>
+	       </div>
+	       <div class="bread-crumb" data-reactid=".0.1.1.0.2">
+	        <ul class="cf" data-reactid=".0.1.1.0.2.0">
+	         <li class="item" data-reactid=".0.1.1.0.2.0.$0"><a href="javascript:;" data-reactid=".0.1.1.0.2.0.$0.0"><span data-reactid=".0.1.1.0.2.0.$0.0.0">根目录</span></a></li>
+	        </ul>
+	       </div>
+	       <div class="file-list" data-reactid=".0.1.1.0.3">
+	        <div class="list-header" data-reactid=".0.1.1.0.3.0">
+	         <div class="file-name" data-reactid=".0.1.1.0.3.0.0">
+	          <span class="checkbox" data-reactid=".0.1.1.0.3.0.0.0"></span>
+	          <span data-reactid=".0.1.1.0.3.0.0.1">全选已加载项</span>
+	         </div>
+	         <div class="file-size" data-reactid=".0.1.1.0.3.0.1">
+	       	   	大小
+	         </div>
+	         <div class="modified-time" data-reactid=".0.1.1.0.3.0.2">
+	        	  修改时间
+	         </div>
+	        </div>
+	        <div class="list-content" data-reactid=".0.1.1.0.3.1">
+	         <div class="list-item" data-reactid=".0.1.1.0.3.1.$10019102407919745">
+	          <div class="file-name" data-reactid=".0.1.1.0.3.1.$10019102407919745.0">
+	           <span class="checkbox" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.0"></span>
+	           <img src="__PUBLIC__/images/folder.png" class="folder-img" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.1" />
+	           <span class="name" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.2">
+	           
+	           dfgvdf</span>
+	           <div class="inline-toolbar hidden" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.3">
+	            <span class="icon edit-btn" title="重命名" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.3.0"></span>
+	            <span class="icon download-btn hidden" title="下载" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.3.1"></span>
+	            <span class="icon delete-btn" title="删除" data-reactid=".0.1.1.0.3.1.$10019102407919745.0.3.2"></span>
+	           </div>
+	          </div>
+	          <div class="file-size" data-reactid=".0.1.1.0.3.1.$10019102407919745.1">
+	           -
+	          </div>
+	          <div class="modified-time" data-reactid=".0.1.1.0.3.1.$10019102407919745.2">
+	           2016-08-05 09:29
+	          </div>
+	         </div>
+	         <div class="list-item" data-reactid=".0.1.1.0.3.1.$10019101860432001">
+	          <div class="file-name" data-reactid=".0.1.1.0.3.1.$10019101860432001.0">
+	           <span class="checkbox" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.0"></span>
+	           <img src="__PUBLIC__/images/folder.png" class="folder-img" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.1" />
+	           <span class="name" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.2" id='name'>dfgvdfg</span>
+	           <div class="inline-toolbar hidden" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.3">
+	            <span class="icon edit-btn" title="重命名" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.3.0"></span>
+	            <span class="icon download-btn hidden" title="下载" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.3.1"></span>
+	            <span class="icon delete-btn" title="删除" data-reactid=".0.1.1.0.3.1.$10019101860432001.0.3.2"></span>
+	           </div>
+	          </div>
+	          <div class="file-size" data-reactid=".0.1.1.0.3.1.$10019101860432001.1">
+	           -
+	          </div>
+	          <div class="modified-time" data-reactid=".0.1.1.0.3.1.$10019101860432001.2">
+	           2016-08-05 09:29
+	          </div>
+	         </div>
+	         <div class="list-item" data-reactid=".0.1.1.0.3.1.$10019099334019137">
+	          <div class="file-name" data-reactid=".0.1.1.0.3.1.$10019099334019137.0">
+	           <span class="checkbox" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.0"></span>
+	           <img src="__PUBLIC__/images/folder.png" class="folder-img" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.1" />
+	           <span class="name" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.2">tesdfsd</span>
+	           <div class="inline-toolbar hidden" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.3">
+	            <span class="icon edit-btn" title="重命名" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.3.0"></span>
+	            <span class="icon download-btn hidden" title="下载" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.3.1"></span>
+	            <span class="icon delete-btn" title="删除" data-reactid=".0.1.1.0.3.1.$10019099334019137.0.3.2"></span>
+	           </div>
+	          </div>
+	          <div class="file-size" data-reactid=".0.1.1.0.3.1.$10019099334019137.1">
+	           -
+	          </div>
+	          <div class="modified-time" data-reactid=".0.1.1.0.3.1.$10019099334019137.2">
+	           2016-08-05 09:29
+	          </div>
+	         </div>
+	        </div>
+	       </div>
+	       <div class="notification" data-reactid=".0.1.1.0.4">
+	        <span data-reactid=".0.1.1.0.4.0"></span>
+	       </div>
+	      </div>
+	     </div>
+	    </div>
+	    <span data-reactid=".0.2"></span>
+	   </div>
+	  </div> 
+<include file='Common/footer' />

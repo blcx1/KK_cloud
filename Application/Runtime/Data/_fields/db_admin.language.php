@@ -1,0 +1,1 @@
+a:8:{i:0;s:2:"id";i:1;s:4:"name";i:2;s:8:"iso_code";i:3;s:9:"is_delete";i:4;s:8:"add_time";i:5;s:11:"update_time";s:3:"_pk";s:2:"id";s:5:"_type";a:6:{s:2:"id";s:20:"smallint(3) unsigned";s:4:"name";s:12:"varchar(255)";s:8:"iso_code";s:10:"varchar(8)";s:9:"is_delete";s:19:"tinyint(1) unsigned";s:8:"add_time";s:8:"datetime";s:11:"update_time";s:8:"datetime";}}

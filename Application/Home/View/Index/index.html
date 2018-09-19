@@ -1,0 +1,38 @@
+<include file='Common/head' />
+<div class="login-container animated fadeInDown" style="" id="kcloud_login_frame">
+	<div class="layout-login">
+		<div class="ll-book-container">
+			<div class="ll-book-top">
+				<div class="ll-logo-area">
+					<img width="120" height="120" src="__PUBLIC__/images/logo.png" alt="{$Think.lang.CloudServices}" />
+					<p class="logo-con">
+						<span class="m-logo-con">{$Think.lang.CloudServices}</span></p>
+					<p class="logo-intro" id="logo-intro">{$Think.lang.HomeCloudSummary}</p>									
+				</div>					 
+				<div id="logoutTipByLocked" class="timeout-tip tl-c" style="display:none"></div>
+				<div class="form-container" style="height:150px" id="form_container">
+					<div class="loginButton"><a id="loginLink1" href="{:get_login_url(false)}" >{$Think.lang.Landimmediately}</a></div>					
+					<div class="registerButton"><a id="register" href="{:get_register_url(false)}" >{$Think.lang.Registeredaccount}</a></div>				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="lang-area">
+		<a class="k-learn-more" href="#" target="_blank" id="cloud_learn_more">
+			<em class="klm-ico"></em>
+			<span>{$Think.lang.LearnMoreCloud}</span></a>
+	</div>
+	<div class="copy-rights">
+		<if condition="$iso_lang_list_count=count($iso_lang_list)"></if>		
+		<volist name='iso_lang_list' id='vo' key="k">
+		<if condition="count($iso_lang_list)"></if>
+		    <a target="_self" class="lang-select-li"  <if condition="$vo.name eq $lang_name">id="current"</if>  href="?l={$key}" data-lang="{$key}">{$vo.name}</a>
+		    <if condition="$k neq $iso_lang_list_count">|</if>
+		</volist>		
+		<br>
+		<br>
+		<a target="_blank" href="#" id="user_privacy">{$Think.lang.Privacypolicy}</a>|
+		<a target="_blank" href="#" id="user_agreement">{$Think.lang.Useragreement}</a>| &nbsp; &nbsp;
+		<span id="rights_reserved">{$Think.lang.Copyright}</span></div>
+</div>
+<include file='Common/footer' />

@@ -1,0 +1,91 @@
+#call_record_full_list .hint-content{
+    left:33%;
+}
+.default-hint{
+    display:none;
+}
+.btn-sel,.call_record_clear{
+    margin-left:24px;
+    display:inline-block;
+    text-decoration:underline;
+}
+.all_sel{
+    display:inline-block;
+    text-decoration:underline;
+}
+#call_record_sel_all_button{
+    margin-left:-10px;
+}
+#call_record_sel div:nth-of-type(2){
+    margin-right:-19px;
+    margin-top:0px;
+}
+
+
+@media all and (orientation:landscape){
+    font{
+        display:none;
+    }
+    .mdl{
+        min-width:100%;
+    }
+    .link-button{
+        margin-left:-20px;
+        margin-right:-20px;
+    }
+    .hint-content{
+        left:50%;
+        top:50%;
+    }
+    .default-hint{
+        position:relative;
+        top:50%;
+    }
+    #sms_left #sms_full_list{
+        height:100%;
+    }
+    #sms_right #smsDetailFrame{
+        height:92%;
+    }
+    #kcloud_left_frame,#kcloud_right_frame{
+        display:block;
+    }
+    .layout{
+        min-width:100%;
+        min-height:100%;
+        overflow:auto;
+    }
+    #kcloud_window{
+        height:100%;
+    }
+    .hint-content{
+        left:50%;
+        top:50%;
+    }
+}
+
+/*另一种写法*/
+@media all and (orientation:landscape){
+    .mdl-m-m{
+        background:none;
+    }
+    #kcloud_right_frame{
+        display:none;
+        width:100%;
+    }
+    #kcloud_left_frame{
+        width:100%;
+    }
+    #kcloud_window{
+        background:#f7f7f7;
+    }
+}
+@media (min-width:768px) and (max-width:1023px){
+    #kcloud_right_frame{
+        display:none;
+    }
+    #kcloud_window{
+        width:200%;
+    }
+
+}

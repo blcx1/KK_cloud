@@ -1,0 +1,282 @@
+.score_1{color:rgb(255,0,0)}
+.score_2{color:#4185da;}
+.score_3{color:rgb(255,204,0)}
+.score_4{color:rgb(51,204,0)}
+.score_bg_1{background-color:rgb(255,0,0)}
+.score_bg_2{background-color:#4185da;}
+.score_bg_3{background-color:rgb(255,204,0)}
+.score_bg_4{background-color:rgb(51,204,0)}
+.score_outer_1 em{color:rgb(255,0,0)}
+.score_outer_2 em{color:#4185da;}
+.score_outer_3 em{color:rgb(255,204,0)}
+.score_outer_4 em{color:rgb(51,204,0)}
+/*禁用修改头像功能*/
+.na-img-area:hover .na-edit{
+    display:none;
+}
+.na-img-area{cursor:default}
+/*叹号垂直居中*/
+.error-tip{
+    line-height: 1.0;
+}
+.na-num{
+    position: relative;
+    z-index: 10;
+}
+/*解决英文被垂直遮挡*/
+.font-img-item{
+    height: 42px;
+}
+/*统一颜色*/
+.color-active{
+    color:#4185da !important;
+}
+.tip_h295{
+    margin-top: -152px;
+}
+.tip_h424{
+    margin-top: -218px;
+}
+.tip_h436{
+    margin-top: -224px;
+}
+/*动态select的布局*/
+#popSetMibao .i_currentselected{
+    width: auto !important;
+}
+#popSetMibao .i_selectoption{
+    width: 100% !important;
+}
+#popSetMibao .set_qst li{
+    width: 190px;
+}
+#popSetMibao .set_qst label{
+    width: 185px;
+}
+#popAnswerMibao .set_qst label{
+    height: 22px;
+    width:175px;
+    display: block;
+}
+#popAnswerMibao .set_qst li{
+    height: 60px;
+}
+/*显示和隐藏备用手机*/
+#popManageTokenStatus dd .no_fb_mobile{
+    display: block;
+}
+#popManageTokenStatus dd .fb_mobile{
+    display: none;
+}
+#popManageTokenStatus .has_fb_mobile .no_fb_mobile{
+    display: none;
+}
+#popManageTokenStatus .has_fb_mobile .fb_mobile{
+    display: block;
+}
+/*popup的遮层*/
+.popup_mask .mod_wrap{
+    height: 100%;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+.popup_mask .mod_acc_tip{
+    display:none;
+    position:absolute;
+    left:50%;
+    margin-left:-206px;
+    top:50%;
+    margin-top:-187px;
+    _top: 500px;
+}
+/*某些要在前面的对话框*/
+.callable{
+    z-index: 200;
+}
+/*vertically center*/
+#popSetMibao, #popAnswerMibao, #popManageTokenStatus, #popManageTokenKeys{
+    top:0;
+    margin-top: 0;
+}
+/*下拉框限高*/
+.i_selectoption {
+    height: 150px;
+}
+/*已完成安装*/
+#popManageTokenDownload .tip_btns .installed{
+    display:inline-block;
+}
+#popManageTokenDownload .tip_btns .goback{
+    display:none;
+}
+#popManageTokenDownload .token_enabled .installed{
+    display:none;
+}
+#popManageTokenDownload .token_enabled .goback{
+    display:inline-block;
+}
+/*IE6*/
+#popUpdatePassword .capt_box{
+    display: none;
+}
+/*sms not sent*/
+#sms-unsent{
+    width:100%;
+    height:100%;
+    position:fixed;
+    _position:absolute;
+    left:0;
+    top:0;
+    z-index:10000;
+    display:none;
+}
+#sms-unsent .bg{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index:-1;
+    filter:alpha(opacity=70);
+    -moz-opacity:.7;
+    opacity:.7;
+    background-color:#aaa;
+}
+#sms-unsent .msg-box{
+    width:560px;
+    height:200px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-280px;
+    margin-top:-100px;
+    background-color:#fff;
+}
+#sms-unsent .msg-box .text{
+    position:absolute;
+    text-align:center;
+    top:56px;
+    font-size:18px;
+    color:#585858;
+    width:500px;
+}
+#sms-unsent .msg-box .button{
+    position:absolute;
+    text-align:center;
+    top:100px;
+    width:120px;
+    height:40px;
+    color:#333;
+    border:1px solid #dadada;
+    left:50%;
+    margin-left:-61px;
+    cursor:pointer;
+    line-height:40px;
+    font-size:16px;
+    -webkit-border-radius:1px;
+    -moz-border-radius:1px;
+    border-radius:1px;
+}
+/*干掉该死的IE6的遮罩问题*/
+#loadingMask .bkc{
+    _height:2000px;
+}
+/*wap*/
+.bugfix_ie6,
+.n-account-area-box{ display:block;}
+/*hide default options*/
+.def-opt{
+    display: none;
+}
+#popEnterNewPhone{
+    margin-top:-250px;
+}
+.del-account-deny h4{
+    font-size:14px;
+    font-weight:normal;
+}
+.del-account-deny-content{
+    list-style:disc;
+    font-fize:14px;
+}
+.del-account-deny-content  li{
+    list-style:disc;
+    font-fize:14px;
+}
+/*干掉该死的IE6的遮罩问题*/
+#loadingMask .bkc{
+    _height:200%;
+}
+.fl-r {
+    float: right;
+}
+.fl-l {
+    float: left;
+}
+.t_c {
+    text-align: center;
+}
+.uinfo {
+    font-size: 12px;
+}
+.c_b {
+    zoom: 1;
+}
+.fr {
+    float: right;
+}
+
+.title-line{
+    display:none;
+}
+
+#popUpdateemail{
+    display: block;
+    border:0;
+    padding:0;
+    padding-bottom: 21px;
+}
+.slider-area{
+    width:480px;
+}
+.btnCancel{
+    display:inline-block;
+}
+#changeEmail .wap-desc{
+    font-size:12px;
+}
+.display_email{
+	font-size:12px;
+}
+@media (min-width:1024px){
+    .blockimportant .layout{
+        width:960px;
+    }
+    .n-frame{
+        min-height:400px;
+    }
+    .n-footer{
+        margin-top:80px;
+    }
+    .popup_mask .mod_acc_tip{
+        margin-left:-206px;
+        margin-top:-187px;
+    }
+    .verification-code{
+        border:1px solid rgb(131,131, 131);
+    }
+    .modal_container .modal_msk{
+        height:100%;
+    }
+    .btn_mod_close span,.btn_mod_close,#submit_code,.btnCancel{
+        display:inline-block;
+    }
+    .modal_container .modal_msk{
+        height:100%;
+    }
+    .btn_mod_close span{
+        display:none;
+    }
+}

@@ -1,0 +1,110 @@
+.layout{
+    min-height:100%;
+}
+.is_send_checked{
+    margin-left:-120%;
+    display:inline-block;
+}
+.is_receive_time{
+    margin-left:100%;
+}
+#sms_full_list_frame{
+    height:100%;
+}
+#left_use_more, #left_recy_more{
+    width:100%;
+}
+#sms_right #smsDetailFrame{
+    height:84%;
+}
+#sms_left #sms_full_list{
+    height:86%;
+}
+#sms_full_detail_content{
+    height:100%;
+}
+#sms_sel_all_button{
+    margin-left:-13px;
+}
+.sms_sel_button{
+    margin-right:-20px;
+}
+
+#layui-layer1{
+    width:85%;
+    margin-left:-2%;
+}
+
+#sms_full_list .hint-content{
+
+    position: relative;
+
+    left: 31%;
+
+    top: 128%;
+}
+
+.btn-ct{
+    cursor:pointer;
+}
+.btn-sel,.sms_clear{
+    margin-left:24px;
+    display:inline-block;
+    text-decoration:underline;
+}
+.all_sel{
+    display:inline-block;
+    text-decoration:underline;
+}
+@media all and (orientation:landscape){
+    font{
+        display:none;
+    }
+    .mdl{
+        min-width:100%;
+    }
+
+    #kcloud_window{
+        height:100%;
+    }
+    .link-button{
+        margin-left:-20px;
+    }
+    .hint-content{
+        left:50%;
+        top:50%;
+    }
+    .default-hint{
+        position:relative;
+        top:50%;
+    }
+    #sms_left #sms_full_list{
+        height:100%;
+    }
+    #sms_right #smsDetailFrame{
+        height:90%;
+    }
+    #kcloud_left_frame,#kcloud_right_frame,.default-hint{
+        display:block;
+    }
+    .layout{
+        min-width:100%;
+        min-height:100%;
+        overflow:auto;
+    }
+}
+
+/*另一种写法*/
+.mdl-m-m{
+	background:none;
+}
+#kcloud_right_frame{
+	display:none;
+	width:100%;
+}
+#kcloud_left_frame{
+	width:100%;
+}
+#kcloud_window{
+	background:#f7f7f7;
+}

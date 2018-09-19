@@ -1,0 +1,67 @@
+<include file='Common/head' />
+<div class="wrapper">
+    <div class="wrap">
+        <div class="layout" id="layout">
+            <!--表单输入登录-->
+            <div class="mainbox" id="login-main">
+                <div><a class="ercode" id="qrcode-trigger" href="javascript:void(0)" style="display:none;"></a></div>
+                <!-- header s -->
+                <div class="lgnheader">
+                    <div class="header_tit t_c">
+                        <em id="custom_display_1" class="klogo">
+                            <img alt="" src="__PUBLIC__/images/logo.png" style='width: 61px;'>
+                        </em>
+                        <h4 class="header_tit_txt" id="login-title">{$Think.lang.Accountlogin}</h4>
+                      </div>
+                </div>
+                <!-- header e -->
+                <div>
+                    <div class="login_area">
+                        <form action="{:get_login_url(false)}" method="POST" id="login-main-form">
+                            <div class="loginbox c_b">
+                                <!-- 输入框 -->
+                                <div class="lgn_inputbg c_b">
+                                    <!--验证用户名-->
+                                 
+                                    <label id="region-code" class="labelbox login_user c_b" for="">
+                                        <input class="item_account"  autocomplete="off"  type="text" name="user_account" value="{$user_account}" id="username" placeholder="{$Think.lang.Username} / {$Think.lang.Email}" >
+                                    </label>
+                                    <label class="labelbox pwd_panel c_b">
+                                       
+                                        <input placeholder="{$Think.lang.Password}" autocomplete="new-password" value=""  name="password" id="pwd"  type="password">
+                                    </label>
+                                </div>
+                                <if condition="$check_verify">
+	                                <div class="lgncode c_b" id="captcha">
+	                                	<div class="inputbg inputcode dis_box">
+											<label style="width: 225px;" class="labelbox labelbox-captcha" for="">
+												<input style="width: 225px;" id="code-captcha" class="code" type="text" name="verify_code" placeholder="{$Think.lang.Picturecode}">
+											</label>
+											<img alt="{$Think.lang.Picturecode}" style="float:right;" title="{$Think.lang.Changepicture}" src="{:getBaseURL()}Home/Index/verify/v/login_verify/88592264" class="icode_image code-image chkcode_img" id="verifyimg">
+										</div>
+	                                </div>
+                                </if>
+                                <!-- 错误信息 -->
+                                <div class="err_tip" id="error-outcon" <if condition = '$error_array.result neq ""'>style='display: block;'</if>>
+                                    <div class="dis_box"><em class="icon_error"></em><span class="error-con">{$error_array.result}</span></div>
+                                </div>
+                                <!-- 登录频繁 -->
+                                <div id="error-forbidden" class="err_forbidden">{$Think.lang.OperatingTooFast}</div>
+                                <div class="btns_bg">
+                                    <input class="btnadpt btn_orange" id="login-button" type="button" value="{$Think.lang.Landimmediately}">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 其他登录方式 e -->
+                <div class="n_links_area" id="custom_display_64">
+                    <a class="outer-link" href="{:get_register_url(false)}">{$Think.lang.Registeredaccount}</a><span>|</span>
+                    <a class="outer-link" href="{:getBaseURL()}Home/Index/forgetpassword.html">{$Think.lang.Forgepassword}？</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file='Common/login_footer' />
+<include file='Common/footer' />

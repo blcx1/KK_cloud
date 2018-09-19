@@ -1,0 +1,69 @@
+/*通话记录*/
+#kcloud_window{
+    width:100%;
+}
+#kcloud_right_frame{
+    display:none;
+}
+#call_record_full_list_frame,#call_record_full_list{
+    height:100%;
+}
+/*增加样式*/
+#call_record_right{
+    position:relative;
+    height:100%;
+}
+#call_record_detail_full_frame{
+    height:100%;
+}
+#mes-details{
+    padding:0px 0 65px 0;
+    height:100%;
+    -webkit-box-sizing:border-box;
+}
+#mes-details-avator,#call_record_full_detail_content{
+    height:92%;
+    margin-bottom:12%;
+}
+.call_list{
+    width:100%;
+}
+.mes-details-container{
+    padding:0 20px;
+}
+.ll-logo-area{
+	height:220px;
+}
+/*短信*/
+@media (min-width:768px) and (max-width:1023px){
+    #kcloud_window{
+        height:77%;
+    }
+    #kcloud_right_frame{
+        display:block;
+    }
+    #kcloud_left_frame{
+        display:block;
+    }
+    font{
+        display:none;
+    }
+    body{
+        overflow-y:auto;
+    }
+}
+@media all and (orientation:landscape) {
+    .v-nav-ul-container {
+        overflow: auto;
+        min-height: 100%;
+        background: #000;
+        opacity: .6;
+    }
+
+    .slider-nav-bg {
+        background: none;
+    }
+
+
+}
+

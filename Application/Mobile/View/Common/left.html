@@ -1,0 +1,18 @@
+<script type="text/javascript" src="__PUBLIC__/js/left_menu.js"></script>
+<div class="v-nav-ul-container" id="g_slider_menu" style="display:block;left:-139px;">
+	<div class="slider-nav-bg"></div>
+	<ul class="v-home-ul slider-nav clearfix">	
+		<volist name='left_suspend_plugin_list' id='vo'>			
+				<li <if condition='$vo.name eq $control_name' > class="highlight"</if>>
+				<a href="{$vo.url}">
+		            <span class="animation-area vhu-item1">
+			              <em class="ico-area v-ico-{$vo.name}"></em>
+			              <em class="ico-lock" style="display:none"></em>
+			              <img src="__PUBLIC__/images/v-home-ico-{$vo.name}.png" width="60" class="for-noanimation">
+		            </span>
+					<span class="vhu-con g_{$vo.name}">{$vo.display_name}</span>
+				</a>
+			</li>	
+		</volist>		
+	</ul>
+</div>

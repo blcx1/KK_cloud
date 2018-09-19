@@ -1,0 +1,67 @@
+<?php
+/**
+ * 云相册
+ * 中文繁体包
+ */
+return array(
+		'recycle'=>'回收站',
+		'Browserupload'=>'瀏覽器上傳',
+		'Photo'=>'照片',
+		'Album'=>'相册',
+		'Face'=>'人臉',
+		'See'=>'查看',
+		'Return'=>'返回',
+		'Camera'=>'相機',
+		'Selectall'=>'全選已加載',
+		'Cancel'=>'取消',
+		'Chose'=>'選擇了',
+		'Addalbum'=>'加到相册',
+		'Screenshot'=>'截圖',
+		'Allvideo'=>'所有視頻',
+		'Private'=>'私密',
+		'Newalbum'=>'新建相册',
+		'Reduction'=>'還原',
+		'Removecompletely'=>'徹底删除',
+		'Newlybuild'=>'新建',
+		'Download'=>'下載',
+		'Addphoto'=>'將照片加到相册',
+		'Move'=>'移動',
+		'Copy'=>'複製',
+		'Prompt'=>'提示',
+		'Determine'=>'確定',
+		'Deletesuccess'=>'删除相册成功',
+		'Information'=>'資訊',
+		'Choice'=>'選擇了',
+		'Addalbum'=>'加到相册',
+		
+		'Newalbumname'=>'新相冊名稱',
+		'Cloudphoto'=>'雲相册',
+		'Downloadoriginal'=>'下載原圖',
+		'Deletepicture'=>'删除圖片',
+		'Chose'=>'選擇了',
+		'Downloadalbum'=>'下載相册',
+		'Deletealbum'=>'删除相册',
+		'Albumtips'=>'當前相册裏沒有照片',
+		'Myalbum'=>'我的相册',
+		'Title'=>'標題',
+		'Time'=>'時間',
+		'Place'=>'地點',
+		'Size'=>'尺寸',
+		'Degreerotation'=>'旋轉度數',
+		'Filesize'=>'文件大小',
+		'Manufacturer'=>'製造商',
+		'Model'=>'型號',
+		'Focallength'=>'焦距',
+		'Timeexposure'=>'曝光时间',
+		'Delete'=>'删除',
+		'Photos'=>'張',
+		'Nodata'=>'沒有數據'
+	/*
+	''=>'',//
+	''=>'',//
+	''=>'',//
+	''=>'',//
+	''=>'',//
+	''=>'',//
+	*/
+);

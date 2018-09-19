@@ -1,0 +1,14 @@
+<div class="n-footer">
+  <div class="nf-link-area clearfix">
+  <ul class="lang-select-list">    
+	    <volist name='iso_lang_list' id='vo'>
+		    <li><a class="lang-select-li <if condition = ' $vo.name eq $lang_name '> current</if>" href="?l={$key}" data-lang="{$key}">{$vo.name}</a>|</li>
+		</volist>
+
+		<li><a class="a_critical" target="_blank" onclick="javascript:void(0);"><em>{$Think.lang.FAQ}</em></a></li>     <!-- href="{:getBaseURL()}Mobile/Index/faqList.html"-->
+
+
+  </ul>
+  </div>
+  <p class="nf-intro"><span>{$Think.lang.Copyright}</span></p>
+</div>

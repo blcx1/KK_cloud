@@ -1,0 +1,267 @@
+<include file='Common/head' />
+<include file='Common/left' />
+<script type="text/javascript">
+page_size = {$page_size};
+device_current_page = 1;
+device_total_count = {$total_count};
+default_device_id = {$default_device_id};
+</script>
+		<div class="layout" style="" id="kcloud_main_frame"> 
+		   <div class="global-head clearfix" id="g_new_navbar"> 
+		    <a href="javascript:void(0);" class="current-nav" id="g_switch_menu"> <em class="menu-more-ico"></em> <span id="g_mod_name">{$Think.lang.Phone}</span> </a> 
+		    <include file='Common/head_right' />
+		   </div> 
+  
+   <div class="frame-container js_frame" id="kcloud_iframe_container" >
+	    <div style="height:100%" id="kcloud_left_frame"> 
+		   <div class="cross-frame" id="phone_frame"> 
+			    <div id="find_loading" class="find-phone-loading" style="display: none;"> 
+			     	<span class="fpl-con">{$Think.lang.InPositioning}</span> 
+			    </div> 
+	   			<iframe id="map_frame" src="{:getBaseURL()}/Home/Phone/map.html?id={$default_device_id}" frameborder="0" width="100%" height="100%" style="z-index: 3; background-color: transparent;" class=""></iframe>
+			</div>
+		</div>
+		<div class="find-phone-container" >
+			<if condition="$total_count gt 0">
+				<div class="my-device">
+					<div class="my-device-info">					
+						<div class="device-name">
+							<span class="device_name_label" style="display:none;">{$Think.lang.DeviceName}: </span><span class="device_name_value">{$device_info.name}</span>
+						</div> 
+						<p class="fpc-intro"> 
+							<em><span class="mac_label">Mac: </span><span class="mac_value">{$device_info.mac}</span></em>							
+						</p>
+					</div>
+					<div class="location_history button" id="phone_view_log">
+						<span class=" btn-ct">{$Think.lang.Log}</span>
+					</div>
+					<div class="change-device button" id="M-Gen-button-103">
+						<span class=" btn-ct">{$Think.lang.AllDevices}</span>
+					</div>
+				</div> 
+				<div class="lo_sw"> 
+					<div class="locate button" id="M-Gen-button-104">
+						<span class=" btn-ct">{$Think.lang.Location}</span>
+					</div>
+				</div>
+				<div class="fp-icobtn clearfix"> 
+					<div class="lo_sw">
+						<div class="icobtn-locked button" id="M-Gen-button-101">
+							<span class=" btn-ct">{$Think.lang.Locked}</span>
+						</div>
+					</div> 
+					<!--<ul> 
+						<li>
+							<div class="icobtn-voice button" id="M-Gen-button-100">
+								<span class=" btn-ct">{$Think.lang.Alarm}</span>
+							</div>
+						</li>
+						<li>
+							<div class="icobtn-clear button" id="M-Gen-button-102">
+								<span class=" btn-ct">{$Think.lang.Erase}</span>
+							</div>
+						</li> 
+					</ul> -->
+				</div> 
+                                <div class="fp-icobtn clearfix"> 
+                                    <div class="lo_sw">
+						<div class="icobtn-locked button" id="M-Gen-button-102">
+							<span class=" btn-ct">{$Think.lang.Alarm}</span>
+						</div>
+                                    </div> 
+                                </div>
+			<else />
+				<p class="no_data">{$Think.lang.NoData}</p>
+			</if>
+		</div> 
+		<!-- 定位 -->
+		 <div class="m-p animated3 pulse clearfix dialog" style="display:none;width: 500px; margin-left: -250px; left: 50%; top: 193.5px; z-index: 130;" id="M-Gen-dialog-109">
+			  <div class="m-p-head clearfix">
+				   <div class="m-p-head-ct">
+				   	 {$Think.lang.MobilePhoneLocation}
+				   </div>
+			   	   <a href="javascript:void(0)" class="close_btn"></a>
+			  </div>
+			  <div class="m-p-frame dialog_body">
+				   <div class="find-phone-content" style="padding-bottom:40px">
+					    <div class="bind-p-con">						    
+						    <p class="pm-p">{$Think.lang.LocationTips}</p>
+					    </div>				    	
+				   </div>
+			  </div>
+			  <div class="m-p-foot button-area clearfix tl-r">
+				   <div id="M-Gen-button-106" class="button">
+				    	<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				   </div>
+				   <div class="default button" id="M-Gen-button-107">
+				   	 <span class=" btn-ct">{$Think.lang.MobilePhoneLocation}</span>
+				   </div>
+			  </div>
+		 </div>
+		<!-- 所有弹窗 -->
+		<div class="m-p animated3 pulse clearfix dialog" style="width: 360px;display:none; margin-left: -150px; left: 50%; top: 212.5px; z-index: 150;" zindex="150" id="M-Gen-dialog-114">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct">
+					{$Think.lang.SwitchingMobilePhone}
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<ul class="select-device">
+				    <Volist name="list_array" id="value">
+					<li <if condition="$value['deviceid'] eq $default_device_id"> class="current"</if> deviceid="{$value.deviceid}">
+						<a href="javascript:void(0);" class="radiobox <if condition="$value['deviceid'] eq $default_device_id"> clicked-radiobox</if>"> <em></em></a> 
+						<div class="sd-device">
+							<p class="sd-name"><span class="device_name_label">{$Think.lang.DeviceName}: </span><span class="device_name_value">{$value.name}</span></p> 
+							<p class="sd-num"><span class="mac_label">Mac: </span><span class="mac_value">{$value.mac}</span></p>							
+						</div>						
+					</li>
+					</Volist>
+				</ul>
+				<p class="no_data">{$Think.lang.NoData}</p>
+				<div class="device_display_more">
+					<div class="loading" style="display: none;"></div>
+					<a href='javascript:void(0);' id='device_display_more'>{$Think.lang.Loadmore}</a>
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div id="M-Gen-button-112" class="button">
+					<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				</div>
+				<div class="default disabled button" id="M-Gen-button-113">
+					<span class=" btn-ct">{$Think.lang.Determine}</span>
+				</div>
+				<div class="default button" id="refresh_device">
+					<span class=" btn-ct">{$Think.lang.Refresh}</span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 发声弹窗 -->
+		<!--<div class="m-p animated3 pulse clearfix dialog" style="display:none;width: 500px; margin-left: -250px; left: 50%; top: 138px; z-index: 130;" id="M-Gen-dialog-108">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct">
+					{$Think.lang.Phonate}
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<div class="find-phone-content" style="padding-bottom:40px">
+					<p class="pm-p">您的手机将会以最大音量{$Think.lang.Phonate}。</p>
+					<p class="pm-p">在这个过程中手机音量控制键无效，但解锁后声音将停止。</p>
+					<span id="trynoise_button">
+						<div id="trynoise" class="button">
+							<span class=" btn-ct"><em></em>{$Think.lang.Audition}</span>
+						</div>
+					</span> 					
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div id="M-Gen-button-106" class="button">
+					<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				</div>
+				<div class="default button" id="M-Gen-button-107">
+					<span class=" btn-ct">{$Think.lang.Phonate}</span>
+				</div>
+			</div>
+		</div>-->
+		
+		<!-- 锁定弹窗  -->
+		
+		<div class="m-p animated3 pulse clearfix dialog" style="width: 500px;display:none; margin-left: -250px; left: 50%; top: 151px; z-index: 120;" zindex="120" id="M-Gen-dialog-106">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct">
+					{$Think.lang.Locked}
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<div class="find-phone-content" style="padding-bottom:40px">
+					<p class="pm-p">{$Think.lang.LockScreenTips}</p>
+						<div class="pm-content"> 
+							<input class="ce-data dialog-input" placeholder="{$Think.lang.LockScreenSetTips}：" type="text" /> 
+							<p class="pm-p">{$Think.lang.LockScreenSetValueTips}</p>
+						</div>					
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div id="M-Gen-button-103" class="button">
+					<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				</div>
+				<div class="default button disabled" id="M-Gen-button-118">
+					<span class=" btn-ct">{$Think.lang.Locked}</span>
+				</div>
+			</div>
+		</div>		
+		<!-- 擦除数据弹窗 -->
+		<!--<div class="m-p animated3 pulse clearfix dialog" style="width: 500px; display:none;margin-left: -250px; left: 50%; top: 165px; z-index: 140;" zindex="140" id="M-Gen-dialog-111">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct">
+					{$Think.lang.WipeData}
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<div class="find-phone-content" style="padding-bottom:40px">
+					<div class="del-div">
+						<p class="pm-p">这个操作将彻底删除您手机上的所有数据！</p>
+						<p class="pm-p">删除数据的同时，您也将失去对这台手机的控制权！</p>
+					</div>
+					<p class="pm-p-little">指令执行后可能会扣取一条短信费用（由运营商收取）。<span class="tooltips"><span class="doubt"></span><span class="bubble"><span class="bubble-corner"></span><span class="bubble-content">如果一段时间内你的手机没有响应网络信号（比如手机{$Think.lang.Offline}或网络问题），系统会通过短信发送指令来确保手机响应。</span></span></span></p>
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div id="M-Gen-button-109" class="button">
+					<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				</div>
+				<div class="default button" id="M-Gen-button-110">
+					<span class=" btn-ct">{$Think.lang.WipeData}</span>
+				</div>
+			</div>
+		</div>-->		
+		<!-- 状态日志 -->
+		<div class="m-p animated3 pulse phone-viewLog-padd clearfix dialog" style="display:none;width: 480px; margin-left: -240px; left: 50%; top: 165px; z-index: 120;" zindex="120" id="M-Gen-dialog-105">
+			<div class="m-p-head clearfix">
+				<div class="m-p-head-ct" id="log_list" data-id="0">
+					<if condition="$device_info">{$device_info.name} (Mac: {$device_info.mac})</if>
+				</div>
+				<div class="location_log_label">
+					<a href="javascript:void(0);">{$Think.lang.LocationLog}</a>
+				</div>
+				<div class="cmd_log_label">
+					<a href="javascript:void(0);">{$Think.lang.OperationLog}</a>
+				</div>
+				<a href="javascript:void(0)" class="close_btn"></a>
+			</div>
+			<div class="m-p-frame dialog_body">
+				<div class="find-phone-note location_log_list">
+					<ul>						
+					</ul>
+					<p class="no_data">{$Think.lang.NoData}</p>
+				</div>
+				<div class="find-phone-note cmd_log_list">
+					<ul>												
+					</ul>
+					<p class="no_data">{$Think.lang.NoData}</p>
+				</div>
+				<div class="log_display_more">
+					<div class="loading" style="display: none;"></div>
+					<a href='javascript:void(0);' id='log_display_more' >{$Think.lang.Loadmore}</a>
+				</div>
+			</div>
+			<div class="m-p-foot button-area clearfix tl-r">
+				<div class="default button" id="clear_all">
+					<span class=" btn-ct">{$Think.lang.Emptyall}</span>
+				</div>
+				<div class="default button" id="refresh_log">
+					<span class=" btn-ct">{$Think.lang.Refresh}</span>
+				</div>
+				<div id="M-Gen-button-104" class="button">
+					<span class=" btn-ct">{$Think.lang.Cancel}</span>
+				</div>
+			</div>
+		</div>		
+		<div class="gray_box" id="__mask__" style="z-index: 109; width: 100%;display:none; height: 100%;"></div>
+   </div> 
+  </div>
+<include file='Common/footer' />

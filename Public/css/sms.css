@@ -1,0 +1,146 @@
+.active1{
+    background-position:-89px -79px;
+}
+.checkbox.active1:hover{
+    background-position: -120px -79px;
+}
+.contact-list-selectmode li .checkbox{
+    display: block;
+}
+.global-list .checkbox.active1{
+    display: block;
+}
+.current-status a{
+	color:#ce290b
+}
+.another-corner a{
+	color:#000
+}
+#sms_tab_full,#sms_tab_locked{
+	cursor: pointer;
+}
+#left_use_more,#left_recy_more{	
+	display: inline-block;    
+    text-align: center;    
+    width: 420px;
+	height:48px;
+	line-height:48px;
+}
+.content_more{
+	text-align: center;  
+}
+#more_content{
+	display: inline-block;    
+    text-align: center;    
+    width: 420px;
+}
+.sms_total_count,#more_content{
+	display:none;
+}
+.global-list.sms-list{
+	
+	border:none;
+}
+.sms_more{
+	
+	height:48px;
+	line-height:48px;
+	border-top:1px solid #cdd2d5;
+	position: relative;
+	top: -48px;
+}
+.hint-content{
+	position: relative;
+	left:156px;
+	top: 315px;	
+	color: #7b7b7b;
+	font-size: 20px;
+}
+.sms_content{
+	width: 70%;
+	display: inline-block;
+	background-color:#e9e9e9;
+}
+.is_send{	
+	float: right;
+	background-color:#adda52;
+}
+.is_receive{
+	background-color:#e9e9e9;
+}
+.is_send_time{
+	margin-left:-343px;
+	float:left;
+	margin-top: 35px;
+}
+.is_receive_time{
+	margin-left:288px;
+	margin-top:-13px;
+	float:left;
+}
+.is_send_checked{	
+	float: left;
+	margin-top: 13px;
+	margin-left: -316px;
+	display:none;
+}
+.is_receive_checked{	
+	float: right;
+	margin-top: -41px;
+	margin-right: -38px;
+	display:none;
+}
+.layout{
+	min-height:912px;
+}
+#scroll_container_sms1 li,#scroll_container_sms2 li{
+	cursor:pointer;
+}
+#sms_full_detail_content .mes-pop-contentbox{
+	border: 0;
+}
+#sms_full_detail_content .mes-pop-box{
+	width: 100%;
+	float: left;
+}
+#sms_full_list .hint-content{
+	
+	position: relative;
+	left:145px;
+	top: 200px;	
+}
+#sms_full_detail_content{
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: 640px;
+}
+#kcloud_window{
+	width: 736.842px;
+	
+}
+
+#sms_full_list{
+	height: 521px;
+}
+
+@media (min-width:768px) and (max-width:1023px){
+    #kcloud_window{
+        width:100%;
+        margin-left:-1px;
+        height:72%;
+    }
+    .mdl{
+        min-width:100%;
+    }
+    .layout{
+        min-width:100%;
+    }
+}
+#kcloud_window{
+
+	-moz-height:80%;
+
+}
+#kcloud_window{
+	margin-bottom:20px;
+}

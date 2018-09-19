@@ -1,0 +1,23 @@
+$(function(){
+    //弹窗
+	/*
+    $("#g_device_count").click(function(){
+        $("#popup").show();
+    });
+    $("#close_device").click(function(){
+        $("#popup").hide();
+    });
+    $("#g_add_device").click(function(){
+        $("#dialog_11").show();
+        $("#dialog_0").hide();
+    });
+    $("#g_add_back").click(function(){
+        $("#dialog_11").hide();
+        $("#dialog_0").show();
+    });
+    if (window.orientation === 90 || window.orientation === -90 ){
+        $("body").css("overflow-y","auto");
+        $(".layout").css({"min-width":"100%","min-height":"190%"});
+        $(".v-home-ul").css("margin-left","9%");
+    }*/
+});
